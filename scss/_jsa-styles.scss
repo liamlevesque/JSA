@@ -38,6 +38,9 @@ html {
 
 .header {
     overflow: hidden;
+    background-color: white;
+    position: relative;
+    z-index: 10;
     //border-bottom: 2px solid #0365C0;
 }
 
@@ -156,6 +159,9 @@ html {
     top: 0;
     bottom: 0;
     right: 0;
+    z-index: 9;
+    background-color: white;
+    border-left: $default-border;
 }
 
     .currentBid{
@@ -224,6 +230,9 @@ html {
       text-align: center;
       padding: $default-spacing;
       box-sizing: border-box;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
     }
 
     .bidMessage span {
@@ -275,6 +284,7 @@ html {
         bottom: 0;
         box-sizing: border-box;
         overflow-y: auto;
+        overflow-x: hidden;
         padding: $default-spacing;
 
         &> div{
@@ -381,6 +391,8 @@ html {
     width: $center-width;
     height: 100%;
     display: inline-block;
+
+    box-shadow: 0px 0 10px 2px rgba(0, 0, 0, 0.2);
 }
 
     .videoBg {
@@ -396,7 +408,6 @@ html {
         top: $photo-height;
         bottom: $messages-height;
         width: 100%;
-        border-right: $default-border;
         
 
         .sectionTitle{
@@ -430,6 +441,7 @@ html {
                 width: calc(100% - 80px);
                 font-size: 1.2rem;
                 padding-left: $default-spacing;
+                padding-right: $default-spacing;
                 display: inline-block;
                 line-height: 1.5rem;
                 box-sizing: border-box;
@@ -475,7 +487,6 @@ html {
 
 .messagesContainer {
     border-top: $default-border;
-    border-right: $default-border;
     position: absolute;
     bottom: 0;
     left: 0;

@@ -33,7 +33,10 @@ html {
     HEADER
 **************************/
 .header {
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+  z-index: 10; }
 
 .logo {
   background: url(http://www.xcira.com/wp-content/uploads/2014/08/xciralogo1-e1403536753425.png);
@@ -127,7 +130,10 @@ span.fa.fa-times-circle {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 0; }
+  right: 0;
+  z-index: 9;
+  background-color: white;
+  border-left: 1px solid #E1E1E1; }
 
 .currentBid div {
   padding: 10px; }
@@ -175,7 +181,10 @@ span.fa.fa-times-circle {
 .bidMessage {
   text-align: center;
   padding: 10px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
 
 .bidMessage span {
   font-size: 1.4rem;
@@ -210,6 +219,7 @@ span.fa.fa-times-circle {
   bottom: 0;
   box-sizing: border-box;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 10px; }
   .choicePriviledgeScroller > div {
     display: inline-block;
@@ -279,7 +289,8 @@ span.fa.fa-times-circle {
   right: 27%;
   width: 45%;
   height: 100%;
-  display: inline-block; }
+  display: inline-block;
+  box-shadow: 0px 0 10px 2px rgba(0, 0, 0, 0.2); }
 
 .videoBg {
   background: #eee;
@@ -291,8 +302,7 @@ span.fa.fa-times-circle {
   position: absolute;
   top: 320px;
   bottom: 100px;
-  width: 100%;
-  border-right: 1px solid #E1E1E1; }
+  width: 100%; }
   .itemDetailContainer .sectionTitle {
     padding: 5px 0;
     height: 50px;
@@ -317,6 +327,7 @@ span.fa.fa-times-circle {
       width: calc(100% - 80px);
       font-size: 1.2rem;
       padding-left: 10px;
+      padding-right: 10px;
       display: inline-block;
       line-height: 1.5rem;
       box-sizing: border-box; }
@@ -350,7 +361,6 @@ span.fa.fa-times-circle {
 ***************************/
 .messagesContainer {
   border-top: 1px solid #E1E1E1;
-  border-right: 1px solid #E1E1E1;
   position: absolute;
   bottom: 0;
   left: 0;
