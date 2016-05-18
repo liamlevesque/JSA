@@ -397,10 +397,12 @@ html {
         bottom: $messages-height;
         width: 100%;
         border-right: $default-border;
-        overflow-y: auto;
+        
 
         .sectionTitle{
             padding: 5px 0;
+            height: 50px;
+            box-sizing: border-box;
 
             // LOT NUMBER STYLE
             span:first-child{
@@ -438,6 +440,10 @@ html {
         .lotDetails {
             font-size: $default-font-size;
             padding: $default-spacing;
+            position: absolute;
+            top: 50px;
+            bottom: 0;
+            overflow-y: auto;
 
             p{
                 margin-bottom: $default-spacing;

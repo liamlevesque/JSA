@@ -292,10 +292,11 @@ span.fa.fa-times-circle {
   top: 320px;
   bottom: 100px;
   width: 100%;
-  border-right: 1px solid #E1E1E1;
-  overflow-y: auto; }
+  border-right: 1px solid #E1E1E1; }
   .itemDetailContainer .sectionTitle {
-    padding: 5px 0; }
+    padding: 5px 0;
+    height: 50px;
+    box-sizing: border-box; }
     .itemDetailContainer .sectionTitle span:first-child {
       display: inline-block;
       width: 80px;
@@ -322,7 +323,11 @@ span.fa.fa-times-circle {
 
 .lotDetails {
   font-size: 13px;
-  padding: 10px; }
+  padding: 10px;
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  overflow-y: auto; }
   .lotDetails p {
     margin-bottom: 10px; }
 
