@@ -465,6 +465,8 @@ html {
             position: absolute;
             top: 50px;
             bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
             overflow-y: auto;
 
             p{
@@ -501,6 +503,7 @@ html {
     bottom: 0;
     left: 0;
     width: 100%;
+    box-sizing: border-box;
     height: $messages-height;
     padding: $default-spacing;
 }

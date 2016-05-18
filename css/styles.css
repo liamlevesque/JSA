@@ -344,6 +344,8 @@ span.fa.fa-times-circle {
   position: absolute;
   top: 50px;
   bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
   overflow-y: auto; }
   .lotDetails p {
     margin-bottom: 10px; }
@@ -371,6 +373,7 @@ span.fa.fa-times-circle {
   bottom: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
   height: 60px;
   padding: 10px; }
 
