@@ -192,7 +192,17 @@ html {
             @include t-700;
         }
 
+        .bidLocation{
+            text-align: right;
+            font-size: $default-font-size;
+            color: $c-grey-500;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
     }
+
+
 
     .bidButton {
 

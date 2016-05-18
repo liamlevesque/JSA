@@ -153,6 +153,12 @@ span.fa.fa-times-circle {
   float: right !important;
   font-size: 1.2rem;
   font-weight: 700; }
+.currentBid .bidLocation {
+  text-align: right;
+  font-size: 13px;
+  color: #515151;
+  margin-top: 0;
+  padding-top: 0; }
 
 .bidButton {
   background: #1b75bc;
