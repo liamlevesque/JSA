@@ -289,7 +289,7 @@ span.fa.fa-times-circle {
   right: 27%;
   width: 45%;
   height: 100%;
-  display: inline-block;
+  z-index: 6;
   box-shadow: 0px 0 10px 2px rgba(0, 0, 0, 0.2); }
 
 .videoBg {
@@ -383,7 +383,8 @@ span.fa.fa-times-circle {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 28%; }
+  width: 28%;
+  z-index: 2; }
   .gridContainer .sectionTitle {
     background-color: #20579e; }
 
