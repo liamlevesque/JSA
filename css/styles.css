@@ -297,14 +297,19 @@ span.fa.fa-times-circle {
 .videoBg {
   background: #eee;
   width: 100%;
-  height: 320px;
-  border: 1px solid #ddd; }
+  height: 320px; }
+  @media (min-width: 64em) {
+    .videoBg {
+      height: 480px; } }
 
 .itemDetailContainer {
   position: absolute;
   top: 320px;
   bottom: 60px;
   width: 100%; }
+  @media (min-width: 64em) {
+    .itemDetailContainer {
+      top: 480px; } }
   .itemDetailContainer .sectionTitle {
     padding: 5px 0;
     height: 50px;

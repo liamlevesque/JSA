@@ -405,7 +405,10 @@ html {
         background: #eee;
         width: 100%;
         height: $photo-height;
-        border: 1px solid #ddd;
+
+        @include breakpoint(med-large){
+            height: $photo-height-large;
+        }
     } 
 
     
@@ -414,6 +417,10 @@ html {
         top: $photo-height;
         bottom: $messages-height;
         width: 100%;
+
+        @include breakpoint(med-large){
+            top: $photo-height-large;
+        }
         
 
         .sectionTitle{
