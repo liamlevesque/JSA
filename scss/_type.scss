@@ -1,0 +1,16 @@
+@mixin t-label{
+	font-size: 0.8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+@mixin t-700{
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+@mixin t-800{
+	font-size: 1.4rem;
+	font-weight: 700;	
+}

@@ -1,0 +1,408 @@
+@import "http://netdna.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.css";
+html body * span.clear, html body * div.clear, html body * li.clear, html body * dd.clear {
+  background: none;
+  border: 0;
+  clear: both;
+  display: block;
+  float: none;
+  font-size: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  font-family: Arial; }
+
+html, body {
+  height: auto !important; }
+
+html {
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  min-width: 768px;
+  width: 100%;
+  height: 100%; }
+
+.container {
+  width: 100%;
+  height: 100% !important; }
+
+/*************************
+    HEADER
+**************************/
+.header {
+  overflow: hidden; }
+
+.logo {
+  background: url(http://www.xcira.com/wp-content/uploads/2014/08/xciralogo1-e1403536753425.png);
+  width: 100px;
+  height: 60px;
+  background-size: 100px;
+  background-repeat: no-repeat;
+  display: inline-block; }
+
+.user {
+  float: right; }
+
+.user div {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 3px;
+  float: left;
+  font-size: 14px;
+  border-right: none;
+  color: #53585F; }
+
+.status.connected {
+  background: #00882B !important;
+  color: #fff !important;
+  font-weight: 400 !important;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
+.status.disconnected {
+  background: red;
+  color: #fff !important;
+  font-weight: 400 !important;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+
+span.fa.fa-check-circle {
+  padding-left: 10px; }
+
+span.fa.fa-times-circle {
+  padding-left: 10px; }
+
+.links {
+  float: none !important;
+  line-height: 28px;
+  background: none !important;
+  border: none !important;
+  text-align: right;
+  clear: left; }
+
+.links span {
+  border-right: 1px solid #0365C0;
+  padding-right: 5px;
+  padding-left: 5px;
+  text-decoration: underline;
+  font-size: 13px;
+  font-weight: 700;
+  color: #53585F; }
+
+.links span:last-child {
+  border-right: 1px solid transparent; }
+
+/*************************
+    BODY
+**************************/
+.content {
+  position: relative;
+  height: calc(100% - 60px); }
+
+.bgColor {
+  background: #1b75bc; }
+
+.sectionTitle {
+  padding: 0 10px;
+  color: #fff;
+  text-transform: uppercase; }
+  .sectionTitle span {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 40px; }
+    .sectionTitle span:nth-child(2) {
+      float: right; }
+
+/***************************
+    BIDDING AREA
+***************************/
+.biddingArea {
+  width: 27%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0; }
+
+.currentBid div {
+  padding: 10px; }
+.currentBid div:first-child span:first-child {
+  color: #1b75bc; }
+.currentBid div:first-child span:last-child {
+  color: #1b75bc;
+  font-size: 1.4rem;
+  font-weight: 700; }
+.currentBid span:first-child {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+.currentBid span:last-child {
+  color: #515151;
+  float: right !important;
+  font-size: 1.2rem;
+  font-weight: 700; }
+
+.bidButton {
+  background: #1b75bc;
+  color: #fff;
+  padding: 20px 5px;
+  border-radius: 100px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  font-weight: 700; }
+  .bidButton:hover {
+    background-color: #20579e; }
+  .bidButton span {
+    margin-left: 5px; }
+
+.bidContainer {
+  height: 250px;
+  border-top: 1px solid #E1E1E1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.bidMessage {
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box; }
+
+.bidMessage span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: white;
+  text-transform: uppercase;
+  display: inline-block; }
+
+.newItem {
+  color: red;
+  background: #fff; }
+
+.bidWon {
+  color: white;
+  background: #36ae4f; }
+
+/***************************
+    CHOICE GROUPS
+***************************/
+.choicePriviledgeContainer {
+  height: calc(100% - 250px); }
+  .choicePriviledgeContainer > div:not(.sectionTitle) {
+    height: calc(100% - 40px);
+    position: relative; }
+
+.choicePriviledgeScroller {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 10px; }
+  .choicePriviledgeScroller > div {
+    display: inline-block;
+    width: 100%;
+    margin: 0 4px 10px 0; }
+    @media (min-width: 64em) {
+      .choicePriviledgeScroller > div {
+        width: 45%; } }
+
+.select-all input {
+  display: none; }
+  .select-all input:checked ~ span i {
+    color: #E87511;
+    background-color: white;
+    border-color: white; }
+.select-all span {
+  display: inline-block; }
+  .select-all span i {
+    color: transparent;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #1b75bc;
+    border-radius: 10px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px; }
+  .select-all span:hover i {
+    color: rgba(27, 117, 188, 0.5); }
+
+.cnp-selector {
+  display: inline-block;
+  cursor: pointer;
+  width: 100%; }
+  .cnp-selector input {
+    display: none; }
+    .cnp-selector input:checked ~ div {
+      background-color: #E87511;
+      border-color: #E87511;
+      color: white; }
+      .cnp-selector input:checked ~ div i {
+        color: #E87511;
+        background-color: white;
+        border-color: white; }
+  .cnp-selector div {
+    color: #1b75bc;
+    padding: 0 10px;
+    border: 2px solid #1b75bc;
+    border-radius: 20px;
+    line-height: 30px; }
+    .cnp-selector div i {
+      color: transparent;
+      display: inline-block;
+      background-color: rgba(27, 117, 188, 0.2);
+      border: 1px solid #1b75bc;
+      border-radius: 10px;
+      width: 15px;
+      height: 15px;
+      margin-right: 5px; }
+    .cnp-selector div:hover {
+      background-color: rgba(27, 117, 188, 0.2); }
+
+/***************************
+    LOT DETAILS
+***************************/
+.lotDetailsArea {
+  position: absolute;
+  right: 27%;
+  width: 45%;
+  height: 100%;
+  display: inline-block; }
+
+.videoBg {
+  background: #eee;
+  width: 100%;
+  height: 320px;
+  border: 1px solid #ddd; }
+
+.itemDetailContainer {
+  position: absolute;
+  top: 320px;
+  bottom: 100px;
+  width: 100%;
+  border-right: 1px solid #E1E1E1;
+  overflow-y: auto; }
+  .itemDetailContainer .sectionTitle {
+    padding: 5px 0; }
+    .itemDetailContainer .sectionTitle span:first-child {
+      display: inline-block;
+      width: 80px;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 1.4rem;
+      line-height: 1rem;
+      vertical-align: top;
+      padding-bottom: 5px; }
+      .itemDetailContainer .sectionTitle span:first-child label {
+        font-size: 11px;
+        display: block;
+        line-height: 1rem;
+        margin-bottom: 5px; }
+    .itemDetailContainer .sectionTitle span:last-child {
+      float: none;
+      display: inline-block;
+      width: calc(100% - 80px);
+      font-size: 1.2rem;
+      padding-left: 10px;
+      display: inline-block;
+      line-height: 1.5rem;
+      box-sizing: border-box; }
+
+.lotDetails {
+  font-size: 13px;
+  padding: 10px; }
+  .lotDetails p {
+    margin-bottom: 10px; }
+
+.g-half {
+  display: inline-block;
+  width: 49%;
+  box-sizing: border-box; }
+
+.field-label {
+  text-transform: uppercase;
+  color: #515151;
+  font-size: 11px;
+  letter-spacing: 1px;
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px; }
+
+/***************************
+    AUCTION MESSAGES
+***************************/
+.messagesContainer {
+  border-top: 1px solid #E1E1E1;
+  border-right: 1px solid #E1E1E1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; }
+
+.auctionMessageItems {
+  width: 100%;
+  overflow-y: auto; }
+  .auctionMessageItems div {
+    font-size: 13px;
+    color: #53585F;
+    padding: 5px; }
+
+/***************************
+    LOT DETAILS
+***************************/
+.gridContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 28%; }
+  .gridContainer .sectionTitle {
+    background-color: #20579e; }
+
+.gridHeader {
+  width: 100% !Important;
+  height: 19px !Important;
+  padding-top: 1px !Important;
+  letter-spacing: 1px;
+  font-size: 11px;
+  text-transform: uppercase;
+  background-color: #20579e; }
+  .gridHeader > div {
+    display: inline-block;
+    box-sizing: border-box;
+    color: white; }
+
+.gridHeader > div:nth-child(1) {
+  width: 16%;
+  text-align: left;
+  padding-left: 10px; }
+
+.gridHeader > div:nth-child(2) {
+  width: 60%;
+  text-align: left; }
+
+.gridHeader > div:nth-child(3) {
+  width: 20%;
+  text-align: center; }
+
+.gridContainer div:nth-child(4) {
+  width: 10%; }
+
+.gridContainer div:nth-child(5) {
+  width: 18%; }
+
+.gridContainer div:nth-child(6) {
+  width: 10%; }

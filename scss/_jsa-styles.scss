@@ -1,0 +1,547 @@
+html body * span.clear,html body * div.clear,html body * li.clear,html body * dd.clear {
+    background: none;
+    border: 0;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    font-family: Arial;
+}
+
+html,body {
+    height: auto !important;
+}
+
+html {
+    font-family: "Trebuchet MS";
+    font-size: 14px;
+    min-width: 768px;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100% !important;
+}
+
+/*************************
+    HEADER
+**************************/
+
+.header {
+    overflow: hidden;
+    //border-bottom: 2px solid #0365C0;
+}
+
+    .logo {
+        background: url(http://www.xcira.com/wp-content/uploads/2014/08/xciralogo1-e1403536753425.png);
+        width: 100px;
+        height: $header-height;
+        background-size: 100px;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+
+    .user {
+        float: right;
+    }
+
+    .user div {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 3px;
+        float: left;
+        font-size: 14px;
+        border-right: none;
+        color: #53585F;
+    }
+
+    .status.connected {
+        background: #00882B !important;
+        color: #fff !important;
+        font-weight: 400 !important;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    .status.disconnected {
+        background: red;
+        color: #fff !important;
+        font-weight: 400 !important;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    span.fa.fa-check-circle {
+        padding-left: 10px;
+    }
+
+    span.fa.fa-times-circle {
+        padding-left: 10px;
+    }
+
+    .links {
+        float: none !important;
+        line-height: 28px;
+        background: none !important;
+        border: none !important;
+        text-align: right;
+        clear:left;
+    }
+
+    .links span {
+        border-right: 1px solid #0365C0;
+        padding-right: 5px;
+        padding-left: 5px;
+        text-decoration: underline;
+        font-size: $default-font-size;
+        font-weight: 700;
+        color: #53585F;
+    }
+
+    .links span:last-child {
+        border-right: 1px solid transparent;
+    }
+
+
+
+
+/*************************
+    BODY
+**************************/
+
+.content {
+    position: relative;
+    height: calc(100% - #{$header-height});
+}
+
+.bgColor {background: $c-brand;}
+
+.sectionTitle {
+    padding: 0 $default-spacing;
+    //height: 25px;
+    color: #fff;
+    text-transform: uppercase;
+
+    span {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: $section-header-height;
+
+        &:nth-child(2){
+            float: right;
+        }
+    }
+}
+
+
+
+/***************************
+    BIDDING AREA
+***************************/
+.biddingArea{
+    width: $right-width;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+    .currentBid{
+
+        div{
+            padding: $default-spacing;
+        }
+
+        div:first-child{ 
+            span:first-child{
+                color: $c-brand;
+            }
+
+            span:last-child{
+                color: $c-brand;
+                @include t-800;
+            }
+        }
+
+        span:first-child{
+            @include t-label;
+        }
+
+        span:last-child {
+            
+            color: $c-grey-500;
+            float: right!important;
+            @include t-700;
+        }
+
+    }
+
+    .bidButton {
+
+        background: $c-brand;
+        color: #fff;
+        padding: 20px 5px;
+        border-radius: 100px;
+        margin: $default-spacing;
+        text-align: center;
+        cursor: pointer;
+        letter-spacing: 2px;
+        @include t-700;
+
+        &:hover{
+            background-color: $c-brand_dark
+        }
+
+        span {
+            margin-left:5px;
+        }
+    }
+
+
+    .bidContainer {
+        height: $biddingHeight;
+        border-top: $default-border;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .bidMessage {
+      //vheight: 40px;
+      text-align: center;
+      padding: $default-spacing;
+      box-sizing: border-box;
+    }
+
+    .bidMessage span {
+      @include t-800;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: white;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    .newItem {
+        color: red;
+        background: #fff;
+
+    }
+
+    .bidWon {
+        color: white;
+        background: $c-confirm;
+
+    }
+
+
+
+
+/***************************
+    CHOICE GROUPS
+***************************/
+
+.choicePriviledgeContainer {
+    height: calc(100% - #{$biddingHeight});
+
+    .sectionTitle{
+
+
+    }
+
+    >div:not(.sectionTitle){
+        height: calc(100% - #{$section-header-height});
+        position: relative;
+    }
+}
+
+    .choicePriviledgeScroller {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding: $default-spacing;
+
+        &> div{
+            display: inline-block;
+            width: 100%;
+            margin: 0 4px 10px 0;   
+
+            @include breakpoint(med-large){
+                width: 45%;
+            }
+        }
+    }
+
+        .select-all{
+            input{
+                display: none;
+
+                &:checked ~ span{
+                    i{
+                        color: $c-active-contrast;
+                        background-color: white;
+                        border-color: white;
+                    }
+                }
+            }
+
+
+            span{
+                display: inline-block;
+                
+                
+                i{
+                    color: transparent;
+                    display: inline-block;
+                    background-color: rgba(white,0.5);
+                    border: 1px solid $c-brand;
+                    border-radius: 10px;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                    
+                }
+
+                &:hover{
+                    i{
+                        color: rgba($c-brand, 0.5);
+                    }
+                }
+            }
+        }
+
+        .cnp-selector{
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+
+            input{
+                display: none;
+
+                &:checked ~ div{
+                    background-color: $c-active-contrast;
+                    border-color: $c-active-contrast; 
+                    color: white;
+
+                    i{
+                        color: $c-active-contrast;
+                        background-color: white;
+                        border-color: white;
+                    }
+                }
+            }
+
+            div{
+                color: $c-brand;
+                padding: 0 $default-spacing;
+                border: 2px solid $c-brand;
+                border-radius: 20px;
+                line-height: 30px;
+
+                i{
+                    color: transparent;
+                    display: inline-block;
+                    background-color: rgba($c-brand,0.2);
+                    border: 1px solid $c-brand;
+                    border-radius: 10px;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                }
+
+                &:hover{
+                    background-color: rgba($c-brand, 0.2);
+                }
+            }
+        }
+
+/***************************
+    LOT DETAILS
+***************************/
+
+.lotDetailsArea{
+    position: absolute;
+    right: $right-width;
+    width: $center-width;
+    height: 100%;
+    display: inline-block;
+}
+
+    .videoBg {
+        background: #eee;
+        width: 100%;
+        height: $photo-height;
+        border: 1px solid #ddd;
+    } 
+
+    
+    .itemDetailContainer {
+        position: absolute;
+        top: $photo-height;
+        bottom: $messages-height;
+        width: 100%;
+        border-right: $default-border;
+        overflow-y: auto;
+
+        .sectionTitle{
+            padding: 5px 0;
+
+            // LOT NUMBER STYLE
+            span:first-child{
+                display: inline-block;
+                width: 80px;
+                box-sizing: border-box;
+                text-align: center;
+                font-size: 1.4rem;
+                line-height: 1rem;
+                vertical-align: top;
+                padding-bottom: 5px;
+
+                label{
+                    font-size: 11px;
+                    display: block;
+                    line-height: 1rem;
+                    margin-bottom: 5px;
+                }
+            }
+
+            //LOT SHORT DESCRIPTION STYLE
+            span:last-child{
+                float: none;
+                display: inline-block;
+                width: calc(100% - 80px);
+                font-size: 1.2rem;
+                padding-left: $default-spacing;
+                display: inline-block;
+                line-height: 1.5rem;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+        .lotDetails {
+            font-size: $default-font-size;
+            padding: $default-spacing;
+
+            p{
+                margin-bottom: $default-spacing;
+
+            }
+        }
+
+            .g-half{
+                display: inline-block;
+                width: 49%;
+                box-sizing: border-box;
+
+            }
+
+            .field-label{
+                text-transform: uppercase;
+                color: $c-grey-500;
+                font-size: 11px;
+                letter-spacing: 1px;
+                display: block;
+                font-weight: 700;
+                margin-bottom: 5px;
+            }
+
+
+/***************************
+    AUCTION MESSAGES
+***************************/
+
+.messagesContainer {
+    border-top: $default-border;
+    border-right: $default-border;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $messages-height;
+}
+
+    .auctionMessageItems {
+
+        width: 100%;
+        overflow-y: auto;
+
+        div {
+          font-size: $default-font-size;
+          color: #53585F;
+          padding: 5px;
+
+        }
+    }
+
+
+/***************************
+    LOT DETAILS
+***************************/
+
+.gridContainer{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $left-width;
+
+    .sectionTitle{
+        background-color: $c-brand_dark;
+    }
+}
+
+        .gridHeader {
+        	width:100% !Important;
+        	height:19px !Important;
+        	padding-top:1px !Important;
+            letter-spacing: 1px;
+            font-size: 11px;
+            text-transform: uppercase;
+            background-color: $c-brand_dark;
+
+            &> div{
+                display: inline-block;
+                box-sizing: border-box;
+                color: white;
+            }
+        }
+
+        .gridHeader>div:nth-child(1){
+        	width:16%;
+            text-align: left;
+            padding-left: $default-spacing;
+        }
+        .gridHeader>div:nth-child(2){
+        	width:60%;
+            text-align: left;
+        }
+        .gridHeader>div:nth-child(3){
+        	width:20%;
+            text-align: center;
+        }
+        .gridContainer div:nth-child(4){
+        	width:10%;
+        }
+        .gridContainer div:nth-child(5){
+        	width:18%;
+        }
+        .gridContainer div:nth-child(6){
+        	width:10%;
+        }
