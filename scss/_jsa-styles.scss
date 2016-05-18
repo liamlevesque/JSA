@@ -502,6 +502,7 @@ html {
     left: 0;
     width: 100%;
     height: $messages-height;
+    padding: $default-spacing;
 }
 
     .auctionMessageItems {
@@ -511,7 +512,7 @@ html {
 
         div {
           font-size: $default-font-size;
-          color: #53585F;
+          color: $c-error;
           padding: 5px;
 
         }
