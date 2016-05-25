@@ -529,6 +529,21 @@
         </div><!-- END OF CONTENT DIV -->
 
         <div ${widget for hoverImage}></div>
+
+        <div id="ConnectionLost" class="app-area-popups" style="display:none;z-index:31;">
+            <div class="app-area-popup" style="width:600px;">
+                <p id="connectionLostLabel">The system has been unable to reconnect for the past 30 seconds. Please click 'Reconnect' to try again or 'Close' to close the browser.</p>
+                <button id="reconnectButton" onclick="stompReconnect();">Reconnect</button>
+                <button id="reconnectCloseButton" onclick="self.close();">Close</button>
+            </div>
+        </div>
+
+        <div id="Paused" class="app-area-popups" style="display:none;z-index:31;">
+            <div class="app-area-popup" style="width:320px;height:165px;border-width:2px; border-style: solid; border-color: #777777;text-align:center;background-color:#43464A;color:#FFFFFF;padding:0px 14px 18px 14px;">
+                <p id="PausedText" style="margin:30px 0 30px 0;font-size:14px;">The auction has been paused momentarily and will resume shortly...</p>
+                <div style="width:160px;height:24px;margin:0 auto;background-image:url('images/iaa/loading.gif');"></div>
+            </div>
+        </div>
       
 </div>
 

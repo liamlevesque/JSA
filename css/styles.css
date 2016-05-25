@@ -351,6 +351,8 @@ span.fa.fa-times-circle {
   width: 100%;
   box-sizing: border-box;
   overflow-y: auto; }
+  .lotDetails span {
+    line-height: 1.4rem; }
   .lotDetails p {
     margin-bottom: 10px; }
 
@@ -713,15 +715,15 @@ span.fa.fa-times-circle {
 /*******************************************************/
 .app-area-popups {
   position: absolute;
-  top: 300px;
-  left: 35% !important;
-  background-color: #fff;
-  color: #333;
-  padding: 10px !important;
+  top: 50%;
+  left: 50% !important;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  padding: 20px !important;
   width: 400px;
   border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   box-shadow: 3px 2px 13px 0px rgba(50, 50, 50, 0.63); }
 
 .closeButton {
@@ -734,18 +736,100 @@ span.fa.fa-times-circle {
   right: 3px; }
 
 .app-area-popup {
-  width: 400px !important; }
+  width: 400px !important;
+  text-align: center; }
+  .app-area-popup p {
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.4rem; }
+  .app-area-popup button {
+    min-width: 100px;
+    padding: 0 15px;
+    line-height: 30px;
+    border: none;
+    background: #1b75bc;
+    border: 2px solid #1b75bc;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700; }
+    .app-area-popup button:hover {
+      background-color: #20579e;
+      border-color: #20579e; }
+    .app-area-popup button:nth-of-type(2) {
+      background-color: transparent;
+      color: #1b75bc; }
+      .app-area-popup button:nth-of-type(2):hover {
+        background-color: #20579e;
+        color: white;
+        border-color: #20579e; }
 
-.app-area-popups button {
-  width: 100px;
-  height: 30px;
-  border: none;
-  background: #0365C0;
-  color: #FFFFFF;
-  box-shadow: 0px 1px 1px #333;
-  cursor: pointer;
-  margin-right: 10px; }
+#Paused .app-area-popup {
+  box-sizing: border-box;
+  height: auto !important;
+  border: none !important;
+  background-color: white !important;
+  color: #1b75bc !important;
+  padding: 20px !important; }
+  #Paused .app-area-popup p {
+    margin: 0 !important; }
+  #Paused .app-area-popup > div {
+    background-image: none !important;
+    background-color: rgba(27, 117, 188, 0.2);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px !important; }
+    #Paused .app-area-popup > div:before {
+      display: block;
+      content: "";
+      background-color: #1b75bc;
+      position: absolute;
+      left: 0;
+      right: 100%;
+      top: 0;
+      height: 100%;
+      -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+      -webkit-animation-name: bounce;
+              animation-name: bounce;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+      -webkit-animation-direction: alternate;
+              animation-direction: alternate; }
 
+@-webkit-keyframes bounce {
+  from {
+    left: 0;
+    right: 100%; }
+  33% {
+    left: 0;
+    right: 50%; }
+  66% {
+    left: 50%;
+    right: 0; }
+  to {
+    left: 100%;
+    right: 0; } }
+
+@keyframes bounce {
+  from {
+    left: 0;
+    right: 100%; }
+  33% {
+    left: 0;
+    right: 50%; }
+  66% {
+    left: 50%;
+    right: 0; }
+  to {
+    left: 100%;
+    right: 0; } }
 /*******************************************************/
 /* Movable Currency
 /*******************************************************/
