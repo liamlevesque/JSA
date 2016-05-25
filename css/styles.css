@@ -37,6 +37,8 @@ html {
   background-color: white;
   position: relative;
   z-index: 10; }
+  .header span:nth-child(1) {
+    display: inline-block; }
 
 .logo {
   height: 60px;
@@ -105,7 +107,8 @@ html {
     color: #515151;
     display: inline-block;
     height: 100%;
-    padding-top: 3px; }
+    padding-top: 3px;
+    box-sizing: border-box; }
     .links span:hover {
       color: #1b75bc; }
     .links span:before {

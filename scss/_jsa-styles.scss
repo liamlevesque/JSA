@@ -42,6 +42,10 @@ html {
     position: relative;
     z-index: 10;
     //border-bottom: 2px solid #0365C0;
+
+    span:nth-child(1){
+        display: inline-block;
+    }
 }
 
     .logo {
@@ -131,6 +135,7 @@ html {
             display: inline-block;
             height: 100%;
             padding-top: 3px;
+            box-sizing: border-box;
 
             &:hover{
                 color: $c-brand;
