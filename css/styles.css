@@ -318,20 +318,23 @@ span.fa.fa-times-circle {
   background: #eee;
   width: 100%;
   height: 34vw; }
-  @media (min-width: 64em) {
+  @media (min-width: 80em) {
     .videoBg {
-      height: 34vw; } }
+      height: 480px; } }
   .videoBg .image_slideshow {
     background-size: cover !important; }
+    @media (min-width: 80em) {
+      .videoBg .image_slideshow {
+        background-size: 640px !important; } }
 
 .itemDetailContainer {
   position: absolute;
   top: 34vw;
   bottom: 60px;
   width: 100%; }
-  @media (min-width: 64em) {
+  @media (min-width: 80em) {
     .itemDetailContainer {
-      top: 34vw; } }
+      top: 480px; } }
   .itemDetailContainer .sectionTitle {
     padding: 5px 0;
     height: 35px;

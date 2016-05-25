@@ -444,12 +444,16 @@ html {
         width: 100%;
         height: $photo-height;
 
-        @include breakpoint(med-large){
-            height: $photo-height-large;
+        @include breakpoint(large){
+            height: 480px;
         }
 
         .image_slideshow{
             background-size: cover !important;
+            
+            @include breakpoint(large){
+                background-size: 640px !important;
+            }
         }
     } 
 
@@ -460,8 +464,8 @@ html {
         bottom: $messages-height;
         width: 100%;
 
-        @include breakpoint(med-large){
-            top: $photo-height-large;
+        @include breakpoint(large){
+            top: 480px;
         }
         
 
