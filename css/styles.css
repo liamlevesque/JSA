@@ -133,9 +133,9 @@ span.fa.fa-times-circle {
 
 .currentBid div {
   padding: 10px; }
-.currentBid div:first-child span:first-child {
+.currentBid div:last-child span:first-child {
   color: #1b75bc; }
-.currentBid div:first-child span:last-child {
+.currentBid div:last-child span:last-child {
   color: #1b75bc;
   font-size: 1.4rem;
   font-weight: 700; }
@@ -156,21 +156,25 @@ span.fa.fa-times-circle {
   margin-top: 0;
   padding-top: 0; }
 
-.bidButton {
+.bid_button {
   background: #1b75bc;
   color: #fff;
   padding: 20px 5px;
   border-radius: 100px;
   margin: 10px;
+  margin-top: 20px;
   text-align: center;
   cursor: pointer;
   letter-spacing: 2px;
   font-size: 1.2rem;
   font-weight: 700; }
-  .bidButton:hover {
+  .bid_button:hover {
     background-color: #20579e; }
-  .bidButton span {
+  .bid_button span {
     margin-left: 5px; }
+  .bid_button.gradient2 {
+    background-color: #515151;
+    opacity: 0.5; }
 
 .bidContainer {
   height: 250px;
@@ -210,6 +214,12 @@ span.fa.fa-times-circle {
 ***************************/
 .choicePriviledgeContainer {
   height: calc(100% - 250px); }
+  .choicePriviledgeContainer .sectionTitle .select_remaining_cb input {
+    margin-top: 14px;
+    margin-right: 7px; }
+  .choicePriviledgeContainer .sectionTitle .select_remaining_text {
+    text-transform: capitalize;
+    font-size: 0.8rem; }
   .choicePriviledgeContainer > div:not(.sectionTitle) {
     height: calc(100% - 40px);
     position: relative; }
@@ -223,13 +233,6 @@ span.fa.fa-times-circle {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 10px; }
-  .choicePriviledgeScroller > div {
-    display: inline-block;
-    width: 100%;
-    margin: 0 4px 10px 0; }
-    @media (min-width: 64em) {
-      .choicePriviledgeScroller > div {
-        width: 45%; } }
 
 .select-all input {
   display: none; }
@@ -250,6 +253,23 @@ span.fa.fa-times-circle {
     margin-right: 5px; }
   .select-all span:hover i {
     color: rgba(27, 117, 188, 0.5); }
+
+.CandPCheckboxOuter {
+  display: inline-block !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 4px 10px 0;
+  border: 2px solid #1b75bc;
+  border-radius: 20px;
+  line-height: 30px;
+  padding: 0 10px;
+  box-sizing: border-box; }
+  .CandPCheckboxOuter span {
+    color: #1b75bc !important;
+    font-weight: 700; }
+  @media (min-width: 64em) {
+    .CandPCheckboxOuter {
+      width: 45% !important; } }
 
 .cnp-selector {
   display: inline-block;
@@ -297,53 +317,36 @@ span.fa.fa-times-circle {
 .videoBg {
   background: #eee;
   width: 100%;
-  height: 320px; }
+  height: 34vw; }
   @media (min-width: 64em) {
     .videoBg {
-      height: 480px; } }
+      height: 34vw; } }
+  .videoBg .image_slideshow {
+    background-size: cover !important; }
 
 .itemDetailContainer {
   position: absolute;
-  top: 320px;
+  top: 34vw;
   bottom: 60px;
   width: 100%; }
   @media (min-width: 64em) {
     .itemDetailContainer {
-      top: 480px; } }
+      top: 34vw; } }
   .itemDetailContainer .sectionTitle {
     padding: 5px 0;
-    height: 50px;
-    box-sizing: border-box; }
-    .itemDetailContainer .sectionTitle span:first-child {
-      display: inline-block;
-      width: 80px;
-      box-sizing: border-box;
-      text-align: center;
-      font-size: 1.4rem;
-      line-height: 1rem;
-      vertical-align: top;
-      padding-bottom: 5px; }
-      .itemDetailContainer .sectionTitle span:first-child label {
-        font-size: 11px;
-        display: block;
-        line-height: 1rem;
-        margin-bottom: 5px; }
-    .itemDetailContainer .sectionTitle span:last-child {
-      float: none;
-      display: inline-block;
-      width: calc(100% - 80px);
-      font-size: 1.2rem;
-      padding-left: 10px;
-      padding-right: 10px;
-      display: inline-block;
-      line-height: 1.5rem;
-      box-sizing: border-box; }
+    height: 35px;
+    box-sizing: border-box;
+    padding: 0 10px; }
+    .itemDetailContainer .sectionTitle span {
+      float: none !important;
+      margin: 0 !important;
+      line-height: 35px !Important; }
 
 .lotDetails {
   font-size: 13px;
   padding: 10px;
   position: absolute;
-  top: 50px;
+  top: 35px;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
@@ -377,6 +380,14 @@ span.fa.fa-times-circle {
   box-sizing: border-box;
   height: 60px;
   padding: 10px; }
+  .messagesContainer .sectionTitle {
+    background-color: transparent;
+    color: #515151;
+    padding: 0; }
+    .messagesContainer .sectionTitle span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1; }
 
 .auctionMessageItems {
   width: 100%;
@@ -389,15 +400,44 @@ span.fa.fa-times-circle {
 /***************************
     LOT DETAILS
 ***************************/
-.gridContainer {
+.gridContainer2 {
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
   width: 28%;
   z-index: 2; }
-  .gridContainer .sectionTitle {
-    background-color: #20579e; }
+  .gridContainer2 .sectionTitle {
+    background-color: #20579e;
+    overflow: hidden;
+    padding-bottom: 5px; }
+    .gridContainer2 .sectionTitle > div {
+      float: left !important;
+      margin: 3px 5px 0 0 !important;
+      width: auto !important;
+      height: auto !important; }
+      .gridContainer2 .sectionTitle > div input {
+        margin: 0; }
+      @media (min-width: 64em) {
+        .gridContainer2 .sectionTitle > div {
+          float: right !important;
+          margin: 13px 0 0 0 !important; } }
+    .gridContainer2 .sectionTitle span:first-child {
+      display: block;
+      line-height: 30px !important; }
+      @media (min-width: 64em) {
+        .gridContainer2 .sectionTitle span:first-child {
+          display: inline;
+          line-height: 40px !important; } }
+    .gridContainer2 .sectionTitle span:last-of-type {
+      font-size: 0.8rem;
+      text-transform: capitalize;
+      line-height: 20px !important;
+      float: left !important; }
+      @media (min-width: 64em) {
+        .gridContainer2 .sectionTitle span:last-of-type {
+          line-height: 40px !important;
+          float: right !important; } }
 
 .gridHeader {
   width: 100% !Important;
@@ -406,30 +446,330 @@ span.fa.fa-times-circle {
   letter-spacing: 1px;
   font-size: 11px;
   text-transform: uppercase;
-  background-color: #20579e; }
+  background-color: #20579e !important; }
   .gridHeader > div {
     display: inline-block;
     box-sizing: border-box;
     color: white; }
 
+.dgrid-header, .dgrid-header-row, .dgrid-footer {
+  background-color: #20579e !important; }
+
 .gridHeader > div:nth-child(1) {
-  width: 16%;
+  display: none;
   text-align: left;
   padding-left: 10px; }
 
 .gridHeader > div:nth-child(2) {
-  width: 60%;
   text-align: left; }
 
 .gridHeader > div:nth-child(3) {
-  width: 20%;
   text-align: center; }
 
-.gridContainer div:nth-child(4) {
+.gridHeader div:nth-child(4) {
+  display: none;
   width: 10%; }
 
 .gridContainer div:nth-child(5) {
-  width: 18%; }
+  width: 18%;
+  display: none; }
 
 .gridContainer div:nth-child(6) {
   width: 10%; }
+
+.dgrid {
+  width: 100%; }
+
+.dgrid-scroller {
+  margin-top: 0 !important;
+  left: 0 !important; }
+
+.dgrid-row {
+  height: auto;
+  border-bottom: 1px solid #E1E1E1; }
+  .dgrid-row.dgrid-row-odd {
+    background: transparent; }
+  .dgrid-row.dgrid-row-even {
+    background: transparent; }
+  .dgrid-row.dgrid-selected {
+    background-color: rgba(27, 117, 188, 0.2) !important; }
+  .dgrid-row [class*="-lot_item"] {
+    background-color: transparent;
+    padding: 5px 0;
+    position: relative; }
+    .dgrid-row [class*="-lot_item"] > div {
+      box-sizing: border-box; }
+    .dgrid-row [class*="-lot_item"] div:nth-child(1) {
+      float: none !important;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 20% !important; }
+      .dgrid-row [class*="-lot_item"] div:nth-child(1) > div {
+        background-color: transparent !important;
+        height: 100% !important;
+        background-size: 55px !important;
+        background-position: 100% 50% !important;
+        width: 100% !important; }
+    .dgrid-row [class*="-lot_item"] div:nth-child(2) {
+      display: inline-block;
+      float: none !important;
+      width: 12% !important;
+      padding-left: 5px;
+      box-sizing: border-box;
+      vertical-align: top;
+      font-weight: 700; }
+    .dgrid-row [class*="-lot_item"] div:nth-child(3) {
+      display: inline-block;
+      float: none !important;
+      width: 66% !important; }
+    .dgrid-row [class*="-lot_item"] div:nth-child(4) {
+      display: none;
+      width: 100% !important;
+      padding-left: calc(12% + 5px);
+      padding-bottom: 5px;
+      float: none !important;
+      color: #515151;
+      line-height: 15px; }
+      .dgrid-row [class*="-lot_item"] div:nth-child(4):not(:empty) {
+        display: block; }
+        .dgrid-row [class*="-lot_item"] div:nth-child(4):not(:empty):before {
+          content: "Sold for "; }
+
+.ui-state-active {
+  background-color: #C1C1C1 !important;
+  /* Make selected rows be gray */ }
+
+.tableCell:hover {
+  border-bottom: 1px dotted #848484 !important;
+  border-right: 1px dotted #848484 !important; }
+
+.dgrid :focus {
+  outline: none !important; }
+
+.dgrid-focus {
+  outline-offset: 0 !important; }
+
+.dgrid-header-scroll {
+  background-color: #777;
+  width: 3% !important; }
+
+/*******************************************************/
+/* COMMON STYLES (FROM JOSHI)
+/*******************************************************/
+.app-area {
+  height: 100% !important; }
+
+.flash_player {
+  position: relative;
+  top: -545px;
+  left: 8px;
+  z-index: 15; }
+
+.splash_image {
+  left: 45% !important;
+  z-index: 20; }
+
+.stack-outer-container, .stack-inner-container {
+  width: 100%;
+  height: 675px;
+  overflow: hidden; }
+
+.loading_info {
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  position: absolute;
+  top: 44%;
+  left: 38%;
+  color: #000000; }
+
+.connected {
+  color: #008800; }
+
+.disconnected {
+  color: #880000; }
+
+/*******************************************************/
+/* Bid Status Messages (FROM JOSHI)
+/*******************************************************/
+.bs_auctionpaused {
+  color: #808080;
+  background-color: RGB(245, 245, 245); }
+
+.bs_auctionbackedup {
+  color: #808080;
+  background-color: #feffcb; }
+
+.bs_bidpending {
+  color: #808080;
+  background-color: #feffcb; }
+
+.bs_newitem {
+  color: #808080;
+  background-color: #feffcb; }
+
+.bs_biddingsuspended {
+  color: #C90107;
+  background-color: RGB(255, 255, 255);
+  border: 1px solid #C90107;
+  height: 38px !important; }
+
+.bs_highbidder {
+  color: #808080;
+  background-color: #feffcb; }
+
+.bs_outbid {
+  color: #C90107;
+  background-color: RGB(255, 255, 255);
+  border: 1px solid #C90107;
+  height: 38px !important; }
+
+.bs_rejected {
+  color: #C90107;
+  background-color: RGB(255, 255, 255);
+  border: 1px solid #C90107;
+  height: 38px !important; }
+
+.bs_readytobid {
+  color: #238723;
+  background-color: RGB(233, 252, 209); }
+
+.bs_sold {
+  color: RGB(61, 176, 61);
+  background-color: RGB(204, 204, 204); }
+
+.bs_won {
+  color: #238723;
+  background-color: RGB(233, 252, 209); }
+
+.bs_won_by_if_bid {
+  color: #808080;
+  background-color: #feffcb; }
+
+.bid_button.next_bid {
+  color: RGB(255, 255, 255); }
+
+.bs_bid_requirement_missing {
+  color: #C90107;
+  background-color: RGB(255, 255, 255);
+  border: 1px solid #C90107;
+  height: 38px !important; }
+
+.bs_fairwarning {
+  color: #808080;
+  background-color: #feffcb; }
+
+.bs_toolate {
+  color: #C90107;
+  background-color: RGB(255, 255, 255);
+  border: 1px solid #C90107;
+  height: 38px !important; }
+
+.bs_wonbyotherbidder {
+  color: #C90107;
+  background-color: RGB(255, 255, 255);
+  border: 1px solid #C90107;
+  height: 38px !important; }
+
+.bs_biddingclosedonitem {
+  color: #808080;
+  background-color: RGB(245, 245, 245); }
+
+.bs_counterofferreceived {
+  background-color: #f1f1f1;
+  color: black; }
+
+/*******************************************************/
+/* Image slide show
+/*******************************************************/
+.image_slideshow {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* http://stackoverflow.com/questions/9262861/css-background-image-to-fit-width-height-should-auto-scale-in-proportion */ }
+
+/*******************************************************/
+/* Final Amount
+/*******************************************************/
+.finalAmount {
+  height: 100px; }
+
+.finalAmontValue {
+  margin-top: 35px !important;
+  position: absolute; }
+
+/*******************************************************/
+/* Popups
+/*******************************************************/
+.app-area-popups {
+  position: absolute;
+  top: 300px;
+  left: 35% !important;
+  background-color: #fff;
+  color: #333;
+  padding: 10px !important;
+  width: 400px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: 3px 2px 13px 0px rgba(50, 50, 50, 0.63); }
+
+.closeButton {
+  width: 25px !important;
+  height: 25px !important;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  right: 3px; }
+
+.app-area-popup {
+  width: 400px !important; }
+
+.app-area-popups button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background: #0365C0;
+  color: #FFFFFF;
+  box-shadow: 0px 1px 1px #333;
+  cursor: pointer;
+  margin-right: 10px; }
+
+/*******************************************************/
+/* Movable Currency
+/*******************************************************/
+.movableCurrencyConverter {
+  float: right;
+  margin-right: 20px; }
+
+.movableCurrencyConverter table {
+  width: 100%;
+  float: left;
+  font-size: 11px;
+  table-layout: fixed; }
+
+.closeCurrencyConverter {
+  position: relative;
+  top: -40px;
+  right: -265px;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  line-height: 12px;
+  font-size: 9px;
+  color: #fff;
+  cursor: pointer; }
+
+.movableCurrencyConverter table td {
+  width: 120px;
+  padding: 15px; }
+
+.movableCurrencyConverter table td span {
+  color: #FFFFFF; }
+
+/* TODO - review and change CSS as necessary */
+#selCurrencyOptionsId {
+  display: inline-block; }
