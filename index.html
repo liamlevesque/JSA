@@ -541,7 +541,10 @@
 
         </div><!-- END OF CONTENT DIV -->
 
-        <div ${widget for hoverImage}></div>
+        <div class="js-hoverimage" style="display: none; position: absolute; width: 160px; height: 120px; left: 589px; top: 464px; background-image: url(&quot;images/lotImage_s.jpg&quot;); background-repeat: no-repeat;" data-dojo-attach-event="onmouseout:mouseOut" id="amd/display/HoverImage_0" widgetid="amd/display/HoverImage_0">
+            <img width="160" height="120" data-dojo-attach-point="image_tag" style="display: none;">
+            <span class="hover_lot_run_name" dojoattachpoint="lotRunname">185</span>
+        </div>
 
         <div id="ConnectionLost" class="app-area-popups" style="display:none;z-index:31;">
             <div class="app-area-popup" style="width:600px;">
@@ -560,6 +563,7 @@
       
 </div>
 
+<script type="text/javascript" src="js/min/main-min.js"></script>
 
 </body>
 </html>

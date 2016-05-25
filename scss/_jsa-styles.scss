@@ -618,7 +618,7 @@ html {
 
 
 /***************************
-    LOT DETAILS
+    LOT PREVIEW AREA
 ***************************/
 
 .gridContainer2{
@@ -832,12 +832,6 @@ html {
                 background-color: #C1C1C1 !important; /* Make selected rows be gray */
             }
 
-            
-
-            
-
-            
-
             .tableCell:hover {
                 border-bottom: 1px dotted #848484 !important;
                 border-right: 1px dotted #848484 !important;
@@ -854,6 +848,24 @@ html {
             .dgrid-header-scroll {
                 background-color: #777;
                 width: 3% !important;
+            }
+
+            div[id*="HoverImage"]{
+                z-index: 100;
+                border: 5px solid $c-grey-500;
+                background-size: 160px;
+                left: 28vw !important;
+
+                @include breakpoint(med-large){
+                    left: auto !important;
+                    right: calc(72vw + 80px);                    
+                }
+
+                .hover_lot_run_name{
+                    background-color: $c-grey-500;
+                    padding: 3px 5px 3px 0;
+                    color: white;
+                }
             }
 
 /*******************************************************/

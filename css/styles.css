@@ -435,7 +435,7 @@ html {
     padding: 5px; }
 
 /***************************
-    LOT DETAILS
+    LOT PREVIEW AREA
 ***************************/
 .gridContainer2 {
   position: absolute;
@@ -599,6 +599,20 @@ html {
 .dgrid-header-scroll {
   background-color: #777;
   width: 3% !important; }
+
+div[id*="HoverImage"] {
+  z-index: 100;
+  border: 5px solid #515151;
+  background-size: 160px;
+  left: 28vw !important; }
+  @media (min-width: 64em) {
+    div[id*="HoverImage"] {
+      left: auto !important;
+      right: calc(72vw + 80px); } }
+  div[id*="HoverImage"] .hover_lot_run_name {
+    background-color: #515151;
+    padding: 3px 5px 3px 0;
+    color: white; }
 
 /*******************************************************/
 /* COMMON STYLES (FROM JOSHI)
