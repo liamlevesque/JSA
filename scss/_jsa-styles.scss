@@ -49,67 +49,108 @@ html {
         width: 180px;
     }
 
+    @mixin headericons{
+        font: normal normal normal 14px/1 FontAwesome;
+        display: block;
+        margin-bottom: $default-spacing;
+        font-size: 20px;
+        margin-left: calc(50% - 10px);
+        margin-top: 5px;
+    }
+
     .user {
         float: right;
+
+        div {
+            display: inline-block !important;
+            vertical-align: top;
+            height: $header-height;
+            color: $c-grey-500;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            padding: 0 $default-spacing;
+        }
+
+        div:nth-of-type(1){ 
+            padding: 0 20px 0 30px;
+            border-left: $default-border;
+
+            &:before{
+                @include headericons;
+                content: "\f007";
+            }
+
+            span:nth-of-type(1){
+                display: none;
+            }
+            span:nth-of-type(2){
+                margin-left:-1em;
+            }
+        }
     }
 
-    .user div {
-        border-top-left-radius: 3px;
-        border-bottom-left-radius: 3px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 3px;
-        float: left;
-        font-size: 14px;
-        border-right: none;
-        color: #53585F;
-    }
+        .status{
+            color: #fff !important;
+            font-weight: 400 !important;
 
-    .status.connected {
-        background: #00882B !important;
-        color: #fff !important;
-        font-weight: 400 !important;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-    }
+            &.connected {
+                &:before{
+                    @include headericons;
+                    content: "\f00c";
+                }
 
-    .status.disconnected {
-        background: red;
-        color: #fff !important;
-        font-weight: 400 !important;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-    }
+                background: $c-confirm !important;
+            }
 
-    span.fa.fa-check-circle {
-        padding-left: 10px;
-    }
+            &.disconnected {
+                &:before{
+                    @include headericons;
+                    content: "\f00d";
+                }
 
-    span.fa.fa-times-circle {
-        padding-left: 10px;
-    }
+                background: $c-error;
+            }
+
+            span.fa{
+                display: none;
+            }
+        }
+
 
     .links {
-        float: none !important;
-        line-height: 28px;
-        background: none !important;
-        border: none !important;
-        text-align: right;
-        clear:left;
-    }
 
-    .links span {
-        border-right: 1px solid #0365C0;
-        padding-right: 5px;
-        padding-left: 5px;
-        text-decoration: underline;
-        font-size: $default-font-size;
-        font-weight: 700;
-        color: #53585F;
-    }
+        float: left;
+        
+        span {
+            border-left: $default-border;
+            padding: 0 $default-spacing;
+            font-weight: 700;
+            color: $c-grey-500;
+            display: inline-block;
+            height: 100%;
+            padding-top: 3px;
 
-    .links span:last-child {
-        border-right: 1px solid transparent;
+            &:hover{
+                color: $c-brand;
+            }
+
+            &:before{
+                @include headericons;
+                font-size: 16px;
+                margin-bottom: $default-spacing + 2px;
+            }
+
+            &:not(.currencyButton):before{
+                content: "\f291";
+            }
+
+            &.currencyButton:before{
+                content: "\f157\f07e\f155";
+                margin-left: calc(50% - 15px);
+            }
+        }
     }
 
 
@@ -235,6 +276,10 @@ html {
         bottom: 0;
         left: 0;
         right: 0;
+
+        // @include breakpoint(large){
+        //     height: 254px;
+        // }
     }
 
     .bidMessage {
@@ -279,6 +324,7 @@ html {
     height: calc(100% - #{$biddingHeight});
 
     .sectionTitle{
+        background-color: $c-grey-500;
         
         .select_remaining_cb input{
             margin-top: 14px;

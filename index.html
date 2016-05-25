@@ -138,16 +138,29 @@
             
             <div class="user">
                 <div>
-                    <div ${widget for loggedInAs}></div>&nbsp;<div ${widget for user name} ></div>
+                    <span data-dojo-attach-point="apLabel" id="amd/display/LanguageLabel_0" widgetid="amd/display/LanguageLabel_0">Logged in as</span>&nbsp;<span data-dojo-attach-point="mySpan" id="amd/display/AttendLabel_0" widgetid="amd/display/AttendLabel_0">x03</span>
                 </div>
                 
-                <div ${widget for connectionstatus} ></div>
+                <div data-dojo-attach-point="apMain" class="amsConnectionStatus status connected" id="amd/display/ConnectionStatusMulti_0" widgetid="amd/display/ConnectionStatusMulti_0" style="display: block;">
+                    <span data-dojo-attach-point="apConnStatus" class="labelClass"></span>
+                    <span data-dojo-attach-point="apValue">Connected<span data-dojo-attach-point="apInnerStatusValue" class="fa fa-check-circle"></span></span>
+                </div>
                 
+                <!-- 
+                <div class="status connected">
+                    Connected<span class="fa fa-check-circle"></span>
+                </div>
+                <div class="status disconnected">
+                    Disonnected<span class="fa fa-times-circle"></span>
+                </div> 
+                
+                <span class="status" data-dojo-type="amd/display/ConnectionStatusMulti" labelText="">   </span>
+                -->
                 <div class="links">
-                    <div ${widget for currencyConverter link}></div>
-                    <div ${widget for widget for purchasePage link}></div>
+                    <span data-dojo-attach-point="apLink" data-dojo-attach-event="onclick: beenClicked" class="currencyButton" id="amd/display/CurrencyConverterButton_0" widgetid="amd/display/CurrencyConverterButton_0" style="cursor: pointer;">Currency Converter</span><span dojoattachpoint="apLink" dojoattachevent="onmouseup: beenClicked" id="amd/display/ViewJavaPurchasesMulti_0" widgetid="amd/display/ViewJavaPurchasesMulti_0" style="cursor: pointer;">My Purchases</span>
                 </div>
             </div>
+
             <div class="ccyconverter" ${widget for currencyConverter layout}></div>
         </div><!-- END OF HEADER -->
 

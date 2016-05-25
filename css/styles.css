@@ -44,57 +44,84 @@ html {
 
 .user {
   float: right; }
+  .user div {
+    display: inline-block !important;
+    vertical-align: top;
+    height: 60px;
+    color: #515151;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 0 10px; }
+  .user div:nth-of-type(1) {
+    padding: 0 20px 0 30px;
+    border-left: 1px solid #E1E1E1; }
+    .user div:nth-of-type(1):before {
+      font: normal normal normal 14px/1 FontAwesome;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      margin-left: calc(50% - 10px);
+      margin-top: 5px;
+      content: "\f007"; }
+    .user div:nth-of-type(1) span:nth-of-type(1) {
+      display: none; }
+    .user div:nth-of-type(1) span:nth-of-type(2) {
+      margin-left: -1em; }
 
-.user div {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 3px;
-  float: left;
-  font-size: 14px;
-  border-right: none;
-  color: #53585F; }
-
-.status.connected {
-  background: #00882B !important;
+.status {
   color: #fff !important;
-  font-weight: 400 !important;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-.status.disconnected {
-  background: red;
-  color: #fff !important;
-  font-weight: 400 !important;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px; }
-
-span.fa.fa-check-circle {
-  padding-left: 10px; }
-
-span.fa.fa-times-circle {
-  padding-left: 10px; }
+  font-weight: 400 !important; }
+  .status.connected {
+    background: #36ae4f !important; }
+    .status.connected:before {
+      font: normal normal normal 14px/1 FontAwesome;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      margin-left: calc(50% - 10px);
+      margin-top: 5px;
+      content: "\f00c"; }
+  .status.disconnected {
+    background: #C2242C; }
+    .status.disconnected:before {
+      font: normal normal normal 14px/1 FontAwesome;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      margin-left: calc(50% - 10px);
+      margin-top: 5px;
+      content: "\f00d"; }
+  .status span.fa {
+    display: none; }
 
 .links {
-  float: none !important;
-  line-height: 28px;
-  background: none !important;
-  border: none !important;
-  text-align: right;
-  clear: left; }
-
-.links span {
-  border-right: 1px solid #0365C0;
-  padding-right: 5px;
-  padding-left: 5px;
-  text-decoration: underline;
-  font-size: 13px;
-  font-weight: 700;
-  color: #53585F; }
-
-.links span:last-child {
-  border-right: 1px solid transparent; }
+  float: left; }
+  .links span {
+    border-left: 1px solid #E1E1E1;
+    padding: 0 10px;
+    font-weight: 700;
+    color: #515151;
+    display: inline-block;
+    height: 100%;
+    padding-top: 3px; }
+    .links span:hover {
+      color: #1b75bc; }
+    .links span:before {
+      font: normal normal normal 14px/1 FontAwesome;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      margin-left: calc(50% - 10px);
+      margin-top: 5px;
+      font-size: 16px;
+      margin-bottom: 12px; }
+    .links span:not(.currencyButton):before {
+      content: "\f291"; }
+    .links span.currencyButton:before {
+      content: "\f157\f07e\f155";
+      margin-left: calc(50% - 15px); }
 
 /*************************
     BODY
@@ -214,12 +241,14 @@ span.fa.fa-times-circle {
 ***************************/
 .choicePriviledgeContainer {
   height: calc(100% - 250px); }
-  .choicePriviledgeContainer .sectionTitle .select_remaining_cb input {
-    margin-top: 14px;
-    margin-right: 7px; }
-  .choicePriviledgeContainer .sectionTitle .select_remaining_text {
-    text-transform: capitalize;
-    font-size: 0.8rem; }
+  .choicePriviledgeContainer .sectionTitle {
+    background-color: #515151; }
+    .choicePriviledgeContainer .sectionTitle .select_remaining_cb input {
+      margin-top: 14px;
+      margin-right: 7px; }
+    .choicePriviledgeContainer .sectionTitle .select_remaining_text {
+      text-transform: capitalize;
+      font-size: 0.8rem; }
   .choicePriviledgeContainer > div:not(.sectionTitle) {
     height: calc(100% - 40px);
     position: relative; }
