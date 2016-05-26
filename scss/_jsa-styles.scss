@@ -126,6 +126,7 @@ html {
     .links {
 
         float: left;
+        padding: 0 !important;
         
         span {
             border-left: $default-border;
@@ -1172,49 +1173,71 @@ html {
         }
 
 /*******************************************************/
-/* Movable Currency
+/* CCY CONVERTER
 /*******************************************************/
 
 .movableCurrencyConverter {
    
-    float: right;
-    margin-right: 20px;
-}
-.movableCurrencyConverter table {
-    width: 100%;
-    float: left;
-    font-size: 11px;
-    table-layout: fixed;
-    
-}
-
-.closeCurrencyConverter{
-    
-   position: relative;
-    top: -40px;
-    right: -265px;
-    width: 12px;
-    height: 12px;
-    text-align: center;
-    line-height: 12px;
-    font-size: 9px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.movableCurrencyConverter table td {
-    width: 120px;
-    padding: 15px;
-}
-
-.movableCurrencyConverter table td span {
-    color: #FFFFFF;
-}
-
-/* TODO - review and change CSS as necessary */
-
-
-
-#selCurrencyOptionsId {
     display: inline-block;
+    background-color: $c-brand;
+    height: $header-height;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    float: right;
+    position: relative;
+
+    &>div>div>div{
+        padding: 0 !important;
+        float: none !important;
+
+        span:nth-of-type(1){
+            display: block !important;
+            float: none !important;
+            margin-bottom: $default-spacing;
+        }
+    }
+
+    #selCurrencyOptionsId{
+        float: right;
+
+        select{
+            float: none !important;
+            top: 0 !important;
+        }
+
+        &+div>div{
+            
+        }
+    }
+
 }
+
+    .closeCurrencyConverter{
+        cursor: pointer;
+        font-size: 0;
+        position: absolute;
+        top: 0;
+        right: 5px;
+
+        &:before{
+            @include headericons;
+            font-size: 14px;
+            color: white;
+            content: "\f00d";
+        }
+    }
+
+    #selCurrencyOptionsId {
+        display: inline-block;
+    }
+
+
+
+
+
+
+
+
+
+
+
