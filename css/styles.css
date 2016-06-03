@@ -15,15 +15,19 @@ html body * span.clear, html body * div.clear, html body * li.clear, html body *
   height: 0;
   font-family: Arial; }
 
-html, body {
-  height: auto !important; }
-
 html {
   font-family: "Trebuchet MS";
   font-size: 14px;
   min-width: 768px;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  overflow-y: auto; }
+
+body {
+  height: 675px;
+  overflow: hidden;
+  border-bottom: 1px solid #E1E1E1;
+  box-sizing: border-box; }
 
 .container {
   width: 100%;
@@ -304,12 +308,39 @@ html {
   line-height: 30px;
   padding: 0 10px;
   box-sizing: border-box; }
-  .CandPCheckboxOuter span {
-    color: #1b75bc !important;
-    font-weight: 700; }
   @media (min-width: 64em) {
     .CandPCheckboxOuter {
       width: 45% !important; } }
+  .CandPCheckboxOuter input {
+    display: none; }
+    .CandPCheckboxOuter input:checked ~ div {
+      background-color: #E87511;
+      border-color: #E87511;
+      color: white; }
+      .CandPCheckboxOuter input:checked ~ div i {
+        color: #E87511;
+        background-color: white;
+        border-color: white; }
+  .CandPCheckboxOuter label > div {
+    color: #1b75bc;
+    padding: 0 10px;
+    border: 2px solid #1b75bc;
+    border-radius: 20px;
+    line-height: 30px; }
+    .CandPCheckboxOuter label > div i {
+      color: transparent;
+      display: inline-block;
+      background-color: rgba(27, 117, 188, 0.2);
+      border: 1px solid #1b75bc;
+      border-radius: 10px;
+      width: 15px;
+      height: 15px;
+      margin-right: 5px; }
+    .CandPCheckboxOuter label > div:hover {
+      background-color: rgba(27, 117, 188, 0.2); }
+  .CandPCheckboxOuter span {
+    color: #1b75bc !important;
+    font-weight: 700; }
 
 .cnp-selector {
   display: inline-block;
@@ -638,7 +669,7 @@ div[id*="HoverImage"] {
 /* COMMON STYLES (FROM JOSHI)
 /*******************************************************/
 .app-area {
-  height: 100% !important; }
+  border-bottom: 1px solid #E1E1E1; }
 
 .flash_player {
   position: relative;
@@ -653,7 +684,8 @@ div[id*="HoverImage"] {
 .stack-outer-container, .stack-inner-container {
   width: 100%;
   height: 675px;
-  overflow: hidden; }
+  overflow: hidden;
+  border-bottom: 1px solid #E1E1E1; }
 
 .loading_info {
   width: 300px;
@@ -929,8 +961,8 @@ div[id*="HoverImage"] {
   cursor: pointer;
   font-size: 0;
   position: absolute;
-  top: 0;
-  right: 5px; }
+  top: -5px;
+  right: -5px; }
   .closeCurrencyConverter:before {
     font: normal normal normal 14px/1 FontAwesome;
     display: block;

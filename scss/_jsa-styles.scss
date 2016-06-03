@@ -15,9 +15,6 @@ html body * span.clear,html body * div.clear,html body * li.clear,html body * dd
     font-family: Arial;
 }
 
-html,body {
-    height: auto !important;
-}
 
 html {
     font-family: "Trebuchet MS";
@@ -25,7 +22,15 @@ html {
     min-width: 768px;
     width: 100%;
     height: 100%;
+    overflow-y: auto;
 }
+
+    body{
+        height: 675px;
+        overflow: hidden;
+        border-bottom: $default-border;
+        box-sizing: border-box;
+    }
 
 .container {
     width: 100%;
@@ -430,15 +435,57 @@ html {
             padding: 0 10px;
             box-sizing: border-box;
 
+            @include breakpoint(med-large){
+                width: 45% !important;
+            }
+
+            input{
+                display: none;
+
+                &:checked ~ div{
+                    background-color: $c-active-contrast;
+                    border-color: $c-active-contrast; 
+                    color: white;
+
+                    i{
+                        color: $c-active-contrast;
+                        background-color: white;
+                        border-color: white;
+                    }
+                }
+            }
+
+            label>div{
+                color: $c-brand;
+                padding: 0 $default-spacing;
+                border: 2px solid $c-brand;
+                border-radius: 20px;
+                line-height: 30px;
+
+                i{
+                    color: transparent;
+                    display: inline-block;
+                    background-color: rgba($c-brand,0.2);
+                    border: 1px solid $c-brand;
+                    border-radius: 10px;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                }
+
+                &:hover{
+                    background-color: rgba($c-brand, 0.2);
+                }
+            }
+
             span{
                 color: $c-brand !important;
                 font-weight: 700;
             }
-
-            @include breakpoint(med-large){
-                width: 45% !important;
-            }
+            
         }
+
+        
 
         .cnp-selector{
             display: inline-block;
@@ -894,8 +941,7 @@ html {
 /*******************************************************/
 @charset "utf-8";
  .app-area {
- 
-    height: 100% !important;
+    border-bottom: $default-border;
  }
  
 .flash_player {
@@ -913,6 +959,7 @@ html {
     width: 100%; 
     height: 675px;
     overflow: hidden;
+    border-bottom: $default-border;
 }
 
 .loading_info {
@@ -1238,8 +1285,8 @@ html {
         cursor: pointer;
         font-size: 0;
         position: absolute;
-        top: 0;
-        right: 5px;
+        top: -5px;
+        right: -5px;
 
         &:before{
             @include headericons;
