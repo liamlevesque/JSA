@@ -1,0 +1,172 @@
+html body * span.clear, html body * div.clear, html body * li.clear, html body * dd.clear {
+  background: none;
+  border: 0;
+  clear: both;
+  display: block;
+  float: none;
+  font-size: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  font-family: Arial; }
+
+html {
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  min-width: 768px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; }
+
+#header #logo {
+  background: url("../../images/mlxi_jsa.png") no-repeat center top; }
+#header .container .clear {
+  display: none; }
+
+#menu {
+  position: absolute;
+  color: black;
+  right: 20px;
+  top: 24px;
+  overflow: hidden;
+  z-index: 100;
+  background-color: transparent; }
+
+#footer {
+  background-color: #1b75bc; }
+
+#navigation {
+  display: none; }
+
+#content {
+  background-color: #1b75bc;
+  margin-top: 0; }
+  #content .login1_popup {
+    width: 40%;
+    margin-right: 10%;
+    float: none;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding: 0;
+    border: 0;
+    background-color: transparent; }
+    #content .login1_popup form .label_wrap label {
+      color: white; }
+    #content .login1_popup .padder h1 {
+      margin-bottom: 10px;
+      text-align: center;
+      padding-bottom: 10px;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 400;
+      font-style: normal;
+      text-decoration: none;
+      text-transform: capitalize;
+      margin-top: 0;
+      color: white; }
+    #content .login1_popup .forgot_password {
+      display: block;
+      float: none;
+      margin-left: 10px;
+      margin-bottom: 10px; }
+      #content .login1_popup .forgot_password a {
+        color: white;
+        text-decoration: underline; }
+        #content .login1_popup .forgot_password a:hover {
+          color: white; }
+      #content .login1_popup .forgot_password a:after {
+        content: "?"; }
+
+.errorMessage {
+  background-color: #C2242C;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 0.8rem; }
+  .errorMessage p {
+    margin: 0; }
+
+form .float_left {
+  float: none !important; }
+form .label_wrap label, form .group-labels .label_wrap label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-left: 10px;
+  color: #515151; }
+form .label_wrap .dijitValidationTextBox, form .group-labels .label_wrap .dijitValidationTextBox {
+  margin-top: 5px; }
+  form .label_wrap .dijitValidationTextBox input, form .group-labels .label_wrap .dijitValidationTextBox input {
+    margin-top: 0; }
+form .label_wrap input, form .group-labels .label_wrap input {
+  width: 100% !important;
+  margin-top: 5px;
+  padding: 8px 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid transparent; }
+  form .label_wrap input:focus, form .group-labels .label_wrap input:focus {
+    outline: none;
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.2); }
+  form .label_wrap input::-webkit-input-placeholder, form .group-labels .label_wrap input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px; }
+  form .label_wrap input::-moz-placeholder, form .group-labels .label_wrap input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: pink; }
+  form .label_wrap input:-ms-input-placeholder, form .group-labels .label_wrap input:-ms-input-placeholder {
+    /* IE 10+ */
+    color: pink; }
+  form .label_wrap input:-moz-placeholder, form .group-labels .label_wrap input:-moz-placeholder {
+    /* Firefox 18- */
+    color: pink; }
+
+.button {
+  display: block;
+  text-align: center;
+  margin-top: 30px; }
+  .button button {
+    min-width: 100px;
+    padding: 0 15px;
+    line-height: 30px;
+    border: none;
+    background: #E87511;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700; }
+    .button button:hover {
+      background-color: #b85d0e; }
+
+.regsitration_popup {
+  width: 48%;
+  float: none;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 10px; }
+
+.form_fields_header {
+  text-transform: uppercase;
+  letter-spacing: 1px; }

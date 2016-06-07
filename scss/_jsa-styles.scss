@@ -429,59 +429,65 @@ html {
             width: 100% !important;
             height: auto !important;
             margin: 0 4px 10px 0;  
-            border: 2px solid $c-brand;
-            border-radius: 20px;
-            line-height: 30px; 
-            padding: 0 10px;
-            box-sizing: border-box;
 
             @include breakpoint(med-large){
                 width: 45% !important;
             }
 
-            input{
-                display: none;
+                span{
+                    color: $c-brand !important;
+                    font-weight: 700;
+                }
 
-                &:checked ~ div{
-                    background-color: $c-active-contrast;
-                    border-color: $c-active-contrast; 
-                    color: white;
+                input{
+                    display: none;
 
-                    i{
-                        color: $c-active-contrast;
-                        background-color: white;
-                        border-color: white;
+                    &:checked ~ div{
+                        background-color: $c-active-contrast;
+                        border-color: $c-active-contrast; 
+                        color: white;
+
+                        &:before{
+                            color: $c-active-contrast;
+                            background-color: white;
+                            border-color: white;
+                        }
+
+                        span{
+                            color: white !important;
+                            font-weight: 400;
+                        }
                     }
                 }
-            }
 
-            label>div{
-                color: $c-brand;
-                padding: 0 $default-spacing;
-                border: 2px solid $c-brand;
-                border-radius: 20px;
-                line-height: 30px;
+                div{
+                    color: $c-brand;
+                    padding: 0 $default-spacing;
+                    border: 2px solid $c-brand;
+                    border-radius: 20px;
+                    line-height: 30px;
+                    cursor: pointer;
 
-                i{
-                    color: transparent;
-                    display: inline-block;
-                    background-color: rgba($c-brand,0.2);
-                    border: 1px solid $c-brand;
-                    border-radius: 10px;
-                    width: 15px;
-                    height: 15px;
-                    margin-right: 5px;
+                    &:before{
+                        content: "\f00c";
+                        font: normal normal normal 14px/1 FontAwesome;
+                        
+                        color: transparent;
+                        display: inline-block;
+                        background-color: rgba($c-brand,0.2);
+                        border: 1px solid $c-brand;
+                        border-radius: 10px;
+                        width: 15px;
+                        height: 15px;
+                        margin-right: 5px;
+                    }
+
+                    &:hover{
+                        background-color: rgba($c-brand, 0.2);
+                    }
                 }
 
-                &:hover{
-                    background-color: rgba($c-brand, 0.2);
-                }
-            }
-
-            span{
-                color: $c-brand !important;
-                font-weight: 700;
-            }
+            
             
         }
 

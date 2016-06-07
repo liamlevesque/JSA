@@ -1,0 +1,613 @@
+table.basic-table {
+	border-bottom: 2px solid #e0e0e0;
+}
+
+th, .header-row-2, .header-row {
+	background-color: #e0e0e0;
+	padding: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+tr.odd td, tr.alternate-row td {
+	background-color: #f9f9f9;
+}
+
+table.basic-table-filters{
+	margin-bottom:8px;
+	font-size:12px;
+}
+
+table.basic-table-filters a{
+	color:#0161AD !important;
+}
+
+table.basic-table-filters td{
+	  padding: 0px 3px 5px 3px;
+	  border-collapse: collapse;
+	  font-size: 95%;
+}
+
+table.basic-table-filters th, .header-row-2, .header-row {
+	background-color: #e0e0e0;
+	padding: 3px;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+table.basic-table-filters tr.odd td, tr.alternate-row td {
+	background-color: #f9f9f9;
+}
+
+.screenlet br, br.clear {
+	clear: both !important;
+	display: none !important;
+}
+.screenlet {
+	background-color: #fff;
+	color: #000;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.gridPad {
+	padding: 10px 10px 10px 4%;
+}
+
+.screenlet .align-float {
+	float: right;
+}
+
+.screenlet-title-bar {
+	border-bottom: 2px solid #efefef;
+	margin-bottom: 10px !important;
+}
+
+.screenlet-title-bar ul{
+	text-align: right !important;
+	margin-bottom: 0 !important;
+}
+
+.screenlet-title-bar li {
+	display: inline !important;
+	margin-left: 10px !important;
+}
+
+.screenlet-title-bar li.disabled {
+	color: #c0c0c0 !important;
+}
+
+.screenlet-title-bar li.h3 {
+	font-size: 16px !important;
+	font-weight: 700;
+	float: left;
+	margin-left: 0 !important;
+}
+
+.screenlet-body {
+	clear: both !important;
+	margin-bottom: 20px;
+}
+
+div:last-child.screenlet-body {
+	clear: both !important;
+	margin-bottom: 0px;
+}
+
+td.label {
+	width: 240px;
+}
+
+td.user_label {
+	width: 140px;
+}
+
+li {
+	list-style-type: none;
+}
+
+td.tax_exempt {
+	text-align: left;
+	width: 120px;
+}
+
+td.re_user_label {
+	width: 125px;
+}
+
+.newItemNotifyLabel{
+	width: 185px;
+	display: inline-block;
+}
+
+.emailNotifyLabel {
+	display: inline-block;
+}
+
+.smsNotifyLabel {
+	display: inline-block;
+}
+
+/**** Event Driven CSS ********/
+
+#createEventContainer, #editEventContainer {
+    width: 920px;
+    height: 100%;
+}
+
+	
+.allInventoryGrid {
+	height: 45em;
+	font-size: .95em;
+	margin: 0 auto;
+}
+
+.createEvent { 
+	height: 54.5em; 
+	display: block; 
+	width: 90%;
+}
+
+#commonFields {
+	height: 28%; 
+	background-color: #efefef; 
+}
+
+#auctionDetails {
+	height: 69%;
+}
+
+#timedAttributes {
+	display: block;
+}
+
+.leftPanel, centerPanel {
+	width: 430px;
+}
+
+.inactive {
+	color: #aeaeae;
+}
+
+.normalLabel {
+	padding-right: 1em;
+	width: auto;
+	margin-top: 0;
+}
+
+#description, #detailedDescription {
+	width: 42.50em;
+}
+
+.leftField {
+	float: left;
+	width:51%;
+}
+
+.rightField {
+	float: left; 
+	width: 49%;
+}
+
+.eventReqdField{
+	float: right;
+	position: relative;
+	left: 28%;
+	top: -35px;
+}
+
+.leftFieldFull {
+	float: left;
+}
+
+.eventReqdFieldLeft{
+		left: 20%;
+}
+
+.rightField_med {
+	float: left; 
+	padding-left: 4.25em
+}
+
+.rightField_short {
+	float: left; 
+	padding-left: 19.5em;
+}
+
+.checkGroup {
+	float: left;
+	padding-right: 2em;
+}
+
+.checkGroup .longLabel{
+	width: 16em;
+}
+
+.blankField {
+	width: 29.22em;
+}
+
+div.clearFooter {
+ 	height: 2em;
+ 	clear: both;
+}
+
+.formButtons {
+	margin: 1em 0em 0em 0em;
+}
+
+.dojoxUploaderFileListTable {
+	margin-top: 1px;
+}
+
+.dojoxUploaderFileListHeader th {
+	font-weight: bold;
+}
+
+.dijitReadOnly *, .dijitReadOnly {
+	background-color: #efefef;
+}
+
+.accordianTitle {
+	font-size: 1.1em;
+	font-weight: bold;
+	padding: 0em 0em .25em;
+}
+
+.accordianGridCount {
+	float: right;
+	margin: 0; 
+	padding: 0;
+	width: 200px;
+}
+
+.dijitAccordionTitleSelected .accordianTitle{
+	color: #F27020;
+}
+
+#eventsContainer {
+	height: 100%;
+	min-width: 1065px; 
+	max-width: 1140px;
+	width: 1140px;
+	overflow-y: auto;
+	padding-right: 20px;
+}
+
+.eventActionBtns {
+	display: block; 
+	float: right; 
+	padding: 1em 3em .5em 0em;
+}
+
+.timedEventsContainer, .liveEventsContainer, .archivedEventsContainer{
+	padding-top: .5em;
+	border: 1px solid #cecece;
+	margin-bottom: 1em;
+}
+
+.timedEventsContainer:hover, .archivedEventsContainer:hover {
+	border: 1px solid #aeaeae;
+}
+
+.events_tabs_div .dijitChecked.dijitTab .tabLabel {
+    color: #f27020;
+    font-weight: bold;
+}
+
+/***** All Events View *****/
+
+.auctionTotalDiv{
+	display: block;
+	float: left; 
+	margin: 0em 0em 0em 2em;
+}
+
+.auctionTotalDivWrap{
+	min-height: 100px; 
+	display: block;
+}
+
+.auctionTotalHeader{
+	text-align:center;
+	text-decoration:underline;
+	padding-bottom:10px;
+}
+
+.aucTotalDetailsDiv{
+	padding: .5em;
+}
+
+.aucTotalDetailsLabel{
+	width: 190px;
+	float: left;
+}
+
+.myPropDiv{
+	display: block;
+	float: left;
+	margin: 0em 0em 0em 3em;
+}
+
+.myPropDivWrap{
+	min-height: 100px; 
+	display: block;
+}
+
+.myPropHeader{
+	text-align:center;
+	text-decoration:underline;
+	padding-bottom:10px;
+}
+
+.myPropDetailsDiv{
+	padding: .5em;
+}
+
+.myPropDetailsLabel{
+	width: 210px;
+	float: left;
+}
+
+/***** END All Events View *******/
+
+/*** Admim Main Page ****/
+
+.dash {
+	width: 94%;
+	/*min-height: 25em;*/
+}
+
+.dashAdministrative {
+	width: 1200px;
+}
+
+.manageBox {
+	width: 280px;
+	margin-bottom: 1em;
+	margin-right: .5em;
+	float:left;
+	min-height: 80px;
+	padding-right: 1em;
+}
+
+.manageBoxAdministrative {
+	margin-bottom: 1em;
+	margin-right: .5em;
+	float:left;
+	min-height: 155px;
+	padding-right: 1em;
+}
+
+.manageBoxHeader {
+	border: 1px solid #999;
+	background-color: #efefef;
+	font-weight: bold;
+	padding: .25em .25em .25em .5em;
+	font-size: 1.15em;
+}
+
+.manageBoxSubHeader {
+	font-weight: bold;
+	padding: 0.5em 0em 0em .5em;
+	font-size: 1.05em;
+}
+
+.manageBoxData {
+	padding: .5em 1em 1em 2em;
+}
+
+.manageBoxDataAdministrative {
+	padding: 2.65em 1em 1em 2em;
+}
+
+.manageBoxLinks {
+	padding-top: .5em;
+	color: #aeaeae;
+	font-weight: bold;
+}
+
+.manageBoxNoLinks {
+	padding-top: .5em;
+	color: #0161AD;
+	font-weight: bold;
+}
+
+.manageBoxLinksCount20{
+	float: right;
+	margin-right: 20px;
+	color: #333;
+}
+
+.manageBoxLinksCount50{
+	float: right;
+	margin-right: 50px;
+	color: #333;
+}
+
+.manageBoxSubLinks{
+	padding-top: 0.5em;
+	padding-left: 1em;
+	color: #aeaeae;
+	font-weight: bold;
+}
+
+.manageBoxLinks a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.manageBoxSubLinks a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.information_image {
+	float: right;
+	padding: 0px;
+	height: 44px;
+	width: 44px;
+	top: 0px;
+	position: relative;
+}
+
+.report_row {
+	border: 1px solid #cecece;
+	background: #efefef;
+}
+
+.report_fieldset {
+	border: 1px solid #cecece;
+	padding: 1em;
+}
+
+.report_legend {
+	padding: 0em .5em 0em .5em;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+table#reports_table {
+	border-collapse: inherit;
+}
+
+.report_form {
+	width: 950px;
+	min-width: 860px; 
+}
+
+table#reports_table td {
+	font-size: 1em;
+}
+
+/** Start of CKEditor CSS change **/
+
+.timedEventsContainer li {
+    list-style-position: inside;
+    list-style-type: inherit;
+}
+
+.timedEventsContainer ol ul li {
+	padding: 0 40px;
+}
+
+/** End of CKEditor CSS change **/
+
+.add_event_inventory_biddingEndDateArea {
+	float: right;
+	font-size: 0.9em;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+.add_event_inventory_eventTitleArea {
+	font-size: 1.1em; 
+	padding-bottom: .5em;
+}
+
+.dijitReadOnly *, .dijitDisabled *, .dijitReadOnly, .dijitDisabled {
+    color: #aeaeae !important;
+}
+
+.time_zone label{
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.6em;
+	margin-top: 0em;
+	float: none;
+}
+
+.alert form {
+	font-size: 0.8em;
+	margin: 0;
+	padding: 10px;
+}
+
+.alert form p {
+	font-size: 1.4em;
+	margin-bottom: 20px;
+}
+
+.reportZone3Filter{
+	float: right;
+	margin-right: -37%;
+	margin-top: 5px;
+}
+
+/** To show bullets and numbering styles in events page, list page**/
+.auctionEvents_descr ol li{
+	list-style-type: inherit;
+	list-style-position: inside;
+	font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.auctionEvents_descr ul li{
+	list-style-type: inherit;
+	list-style-position: inside;
+	font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.event_list_item_description ol li{
+	list-style-type: inherit;
+	list-style-position: inside;
+	font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.event_list_item_description ul li{
+	list-style-type: inherit;
+	list-style-position: inside;
+	font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+/* .auctionEvents_descr ol li, ul li{
+	list-style-type: inherit;
+	list-style-position: inside;
+	font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.auctionEvents_descr ol li, ul li{
+	list-style-type: inherit;
+	list-style-position: inside;
+	font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+} */
+
+/* .event_list_item_description ol li, ul li{
+	list-style-type: inherit;
+	list-style-position: inside;
+	font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+} */
+
+.live_event_label{
+	color:#800517;
+}
+
+.event_upcoming_status{
+	color:#000;
+}
+
+.event_active_status{
+	color:#008000;
+}
+
+.event_closed_status{
+	color:#ff0000;
+}
+
+.live_sale_img_notes{
+	color: grey;
+	font-size: 10px;
+}

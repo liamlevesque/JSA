@@ -1,0 +1,305 @@
+<html><head>
+    
+    <title>Japan Super Auction | Live Auction</title>
+    <link href="images/favicon.ico" rel="Shortcut Icon">
+
+    <link href="css/static/standard.css" rel="stylesheet" type="text/css">
+    <link href="css/static/framework.css" rel="stylesheet" type="text/css">
+    <link href="css/static/admin.css" rel="stylesheet" type="text/css">
+    <link href="css/static/custom_mlxi.css" rel="stylesheet" type="text/css">
+    <link href="css/static/static.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="nihilo" onload="checkSessionTimeOut()" data-pinterest-extension-installed="cr1.39.1">
+		<!-- Start of Wrapper -->
+		<div id="wrapper">
+			<div id="header_wrapper">
+			<!-- Start of Menu Bar -->
+			<div id="menu" class="background_color">
+				<div id="date">
+					June 06, 2016      Auction Currency = JPY
+				</div>
+				
+						<!-- Start of Login Info -->
+						
+						<!-- End of Login Info -->
+			</div>
+			<!-- Start of Header R0_0.253 -->		
+			<div id="header" class="header">
+				<div class="container">
+					<!-- Start of Logo -->
+					<div id="logo" class="logo"></div>
+					<div id="rightlogo" class="rightlogo"></div>
+					<div>
+					</div>
+					<!-- End of Logo -->
+					<div class="clear">
+						<!-- Start of Client Info -->
+						<div id="client_info">
+							<div class="client_name">
+								
+								Auctions Powered by Xcira
+							</div>
+							<br>
+							<div class="auction_type">
+								Japan Super Auction
+							</div>
+						</div>
+						<!-- End of Client Info -->
+					</div>
+				</div>
+								<!-- Start of Navigation -->
+								<div id="navigation">
+									<ul class="site_nav">
+										
+									</ul>
+								</div>
+								<!-- End of Navigation -->
+									<input type="hidden" value="3600" name="sessionTimeoutInterval" id="sessionTimeoutInterval">
+									<input type="hidden" value="" name="lastAccessTimestamp" id="lastAccessTimestamp">
+								<!-- Start of Navigation -->
+								<!--
+								<div id="navigation">
+									<ul class="site_nav">
+										<li><a href="">Link 1</a></li>
+										<li><a href="">This is a long link</a></li>
+										<li><a href="">Link 3</a></li>
+										<li><a href="">Link 4</a></li>
+									</ul>
+								</div>
+								-->
+								<!-- End of Navigation -->					
+			</div>
+			<!-- End of Header -->
+			</div>
+			<!-- Start of Content --><!-- End Template component://xap-storefront/webapp/xap-storefront/common/header.ftl -->
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#header -->
+<!-- Begin Template component://xap-storefront/webapp/xap-storefront/common/login.ftl -->
+
+<style type="text/css">
+  	@import "/images/dojo_1.5/dijit/themes/nihilo/nihilo.css";
+</style>
+
+<script type="text/javascript" src="/xap-storefront/images/js/dojo_1_6_1/dojo/dojo.js" djconfig="parseOnLoad: true"></script>
+<script type="text/javascript" src="/xap-storefront/images/js/dojo_1_6_1/dojo/xapdojo1_6_1.js?R0_0.253" djconfig="parseOnLoad: true"></script>
+
+<script language="JavaScript" type="text/javascript"> 	
+	function showForgotPassword() {
+		showForgotPasswordPopup('Forgot Password Error&#33;', 'The username entered is invalid.', 'Email Sent', 'A new password has been sent to your email address on file.', '&#47;xap-mlxi', 'en');
+	}
+	function showForgotUserid() {
+		showForgotUseridPopup('Forgot Username Error&#33;', 'The email entered is invalid.', 'Email Sent', 'An email has been sent to your email id with your username.', '&#47;xap-mlxi', 'en');
+	}
+	
+	function redirectToRegistration(registerUrl){
+		window.location=registerUrl;
+	}
+	function registerViewer(){
+		var form = dijit.byId("viewerRegistrationForm");
+		if(form.isValid()) {
+			var productStoreId = dojo.byId("productStoreId").value;
+			var viewerName = dojo.byId("viewerName").value;
+			var viewerEmail = dojo.byId("viewerEmail").value;
+			var viewerCountry = dijit.byId("VIEWER_COUNTRY").value;
+			
+			var targetURL = '&#47;xap-mlxi' + '/control/createViewer';
+			targetURL = '/' + targetURL.substring(5);
+			dojo.xhrGet({
+				url : targetURL,
+				handleAs: "json",
+				preventCache: true,
+				sync: true,
+				content : {
+					productStoreId: productStoreId,
+				  	viewerName: viewerName,
+				  	viewerEmail: viewerEmail, 
+				  	viewerCountry: viewerCountry
+				},
+				// The load function will be called on a successful response.
+				load : function(response){
+					//console.log("response", response);
+					if(response.message == "success") {
+						dojo.byId("viewerName").value = '';
+						dojo.byId("viewerEmail").value = '';
+						dojo.byId("VIEWER_COUNTRY").value = 'United States';
+						
+						showPopUpMessage("EMail Sent", "Email is sent");
+					}
+				},
+				// The error function will be called in an error case.
+				error : function(response){  
+					//console.log(" error ");
+				}				  
+			});		
+		} else {
+			showPopUpMessage("Registration Error", "Please enter all the fields with valid data");
+			return false;
+		}
+	}	
+</script>
+
+
+		
+		<!-- Start of Wrapper -->
+		<div id="content">
+			<div class="wrapper">
+			<!-- Start of Alert -->
+			<div class="login1_popup">
+				<div class="padder">
+					<h1>Sign In</h1>
+					
+					<form method="post" action="/xap-mlxi/control/login" name="loginform" id="loginform">
+						<input type="hidden" id="requiresDuplicateLogin" name="requiresDuplicateLogin" value="">
+						<input type="hidden" name="pageLocale" value="en">
+						
+						<div class="content-messages errorMessage">
+					    	<p>Invalid Username or Password</p>
+					    </div>
+						
+						<div class="float_left">
+							<div class="label_wrap">
+							<label for="username">Username</label>
+							<input style="width:140px;" type="text" id="USERNAME" name="USERNAME" placeholder="username" value="" size="20">
+							</div>						
+							<div class="label_wrap">
+							<label for="password">Password</label>
+							<input style="width:140px;" type="password" id="PASSWORD" placeholder="password" name="PASSWORD" value="" size="20">
+							<span style="opacity: 1; left: 422px; top: 360.594px; width: 19px; min-width: 19px; height: 13px; position: absolute; border: none; display: inline; visibility: visible; z-index: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAANCAYAAABLjFUnAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZG9SsNQGIaf04qCQxAJbsLBQVzEn61j0pYiONQokmRrkkMVbXI4Of508ia8CAcXR0HvoOIgOHkJboI4ODgECU4i+EzP9w4vL3zQWPE6frcxB6PcmqDnyzCK5cwj0zQBYJCW2uv3twHyIlf8RMD7MwLgadXr+F3+xmyqjQU+gc1MlSmIdSA7s9qCuATc5EhbEFeAa/aCNog7wBlWPgGcpPIXwDFhFIN4BdxhGMXQAHCTyl3AtercArQLPTaHwwMrN1qtlvSyIlFyd1xaNSrlVp4WRhdmYFUGVPuq3Z7Wx0oGPZ//JYxiWdnbDgIQC5M6q0lPzOn3D8TD73fdMb4HL4Cp2zrb/4DrNVhs1tnyEsxfwI3+AvOlUD7FY+VVAAAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAEBSURBVHjapNK9K4UBFMfxD12im8JkMdyMRmUwKCyKhKQsJspgcjerxR+hDFIGhWwGwy0MFiUxSCbZ5DXiYjnqSY/ui+90Op3zHX7n1OTzeSlkMYpW1GESnSjgBGu4+L2Ukc4z1qPuwTDu0YsOnKbJapXmEP3YxDUGsJE2mFEeQxhBOxr/Giola8MCZtASvR3s4hY3qE+TZSPwd+Qip6mof7jDE5rRhAZc4QuXSdkrujCNvliAR+zFBQ/wgmLk/YmPmCsmZUVsx8JZyLewhPNygv2dWS6u9oZFrKiA5Gt0Yx8PGK9UlJQNxu8UMIZjVZDBPOawjNW4pmplE5jFkX/yPQDFYTbukzAYUgAAAABJRU5ErkJggg==&quot;); background-position: 0px 0px; background-repeat: no-repeat;"></span></div>
+						</div>
+						<div class="forgot_password"><a href="javascript:showForgotPassword();">Forgot Password</a></div>
+						<div class="forgot_password"><a href="javascript:showForgotUserid();">Forgot Username</a></div>
+						<div class="button">
+							<button type="submit" id="btn_login" class="button_gradient">
+								Sign In
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<!-- End of Alert -->
+			<div class="regsitration_popup">
+						<div class="form_fields" style="width:100%;margin:10px;">
+							<form dojoattachpoint="containerNode" dojoattachevent="onreset:_onReset,onsubmit:_onSubmit" name="viewerRegistrationForm" action="" method="post" id="viewerRegistrationForm" class="basic-form" widgetid="viewerRegistrationForm">
+							<input type="hidden" id="productStoreId" name="productStoreId" value="9045">
+							<div class="form_fields_header">Register As Viewer</div>
+							<fieldset>
+								<div class="padder" style="padding:0px;">
+									<div class="group_labels">
+										<div class="label_wrap">
+											
+										<label for="sort_by_year">Name:</label>
+										
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_viewerName" role="presentation" widgetid="viewerName">
+
+											<div class="dijitReset dijitValidationContainer">
+												<input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation">
+											</div>
+												<div class="dijitReset dijitInputField dijitInputContainer">
+													<input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="VIEWER_NAME" type="text" aria-invalid="true" id="viewerName" tabindex="0" aria-required="true" value="">
+													<span style="opacity: 1; left: 146px; top: 1px; width: 19px; min-width: 19px; height: 13px; position: absolute; border: none; display: inline; visibility: visible; z-index: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAANCAYAAABLjFUnAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZG9SsNQGIaf04qCQxAJbsLBQVzEn61j0pYiONQokmRrkkMVbXI4Of508ia8CAcXR0HvoOIgOHkJboI4ODgECU4i+EzP9w4vL3zQWPE6frcxB6PcmqDnyzCK5cwj0zQBYJCW2uv3twHyIlf8RMD7MwLgadXr+F3+xmyqjQU+gc1MlSmIdSA7s9qCuATc5EhbEFeAa/aCNog7wBlWPgGcpPIXwDFhFIN4BdxhGMXQAHCTyl3AtercArQLPTaHwwMrN1qtlvSyIlFyd1xaNSrlVp4WRhdmYFUGVPuq3Z7Wx0oGPZ//JYxiWdnbDgIQC5M6q0lPzOn3D8TD73fdMb4HL4Cp2zrb/4DrNVhs1tnyEsxfwI3+AvOlUD7FY+VVAAAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAECSURBVHjapNK9K8UBFIfxD12im8LEYLgZjcpgUFgUCUlZTJRkMpqUxR+hDFIGhWwGwy0MFiUxSCbZ5DXiYjnqdvvpvnim0+mcZ/ieU9U6tySBNEbQjBpMoANZnGIdl4VLKcm8YCPqbgzhAT1ox1mSrFpxjtCHLdygH5tJgymlMYhhtKH+r6FishYsYBpN0dvFHu5wi9okWToC/0AmcpqM+pd7PKMRDajDNb5xlS97Qyem0BsL8IT9uOAhXpGLvL/wGXO5fFkOO7FwHvJtLOOilGALM8vE1d6xiFVlkP8aXTjAI8bKFeXLBuJ3shjFiQpIYR6zWMFaXFOlsnHM4Ng/+RkAdVE2mEeC7WYAAAAASUVORK5CYII=&quot;); background-position: 0px 0px; background-repeat: no-repeat;">
+												
+													</span>
+												</div>
+											</div>
+											<span class="required_field">*</span>
+										</div>									
+									</div>
+
+									<div class="group_labels">
+										<div class="label_wrap">
+											
+											<label for="sort_by_year">EMail:</label>
+											
+											<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_viewerEmail" role="presentation" widgetid="viewerEmail">
+
+												<div class="dijitReset dijitValidationContainer">
+
+													<input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation">
+												</div>
+
+												<div class="dijitReset dijitInputField dijitInputContainer">
+
+													<input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="VIEWER_EMAIL" type="text" maxlength="255" aria-invalid="true" id="viewerEmail" tabindex="0" aria-required="true" value="">
+
+														<span style="opacity: 1; left: 146px; top: 1px; width: 19px; min-width: 19px; height: 13px; position: absolute; border: none; display: inline; visibility: visible; z-index: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAANCAYAAABLjFUnAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZG9SsNQGIaf04qCQxAJbsLBQVzEn61j0pYiONQokmRrkkMVbXI4Of508ia8CAcXR0HvoOIgOHkJboI4ODgECU4i+EzP9w4vL3zQWPE6frcxB6PcmqDnyzCK5cwj0zQBYJCW2uv3twHyIlf8RMD7MwLgadXr+F3+xmyqjQU+gc1MlSmIdSA7s9qCuATc5EhbEFeAa/aCNog7wBlWPgGcpPIXwDFhFIN4BdxhGMXQAHCTyl3AtercArQLPTaHwwMrN1qtlvSyIlFyd1xaNSrlVp4WRhdmYFUGVPuq3Z7Wx0oGPZ//JYxiWdnbDgIQC5M6q0lPzOn3D8TD73fdMb4HL4Cp2zrb/4DrNVhs1tnyEsxfwI3+AvOlUD7FY+VVAAAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAECSURBVHjapNK9K8UBFIfxD12im8LEYLgZjcpgUFgUCUlZTJRkMpqUxR+hDFIGhWwGwy0MFiUxSCbZ5DXiYjnqdvvpvnim0+mcZ/ieU9U6tySBNEbQjBpMoANZnGIdl4VLKcm8YCPqbgzhAT1ox1mSrFpxjtCHLdygH5tJgymlMYhhtKH+r6FishYsYBpN0dvFHu5wi9okWToC/0AmcpqM+pd7PKMRDajDNb5xlS97Qyem0BsL8IT9uOAhXpGLvL/wGXO5fFkOO7FwHvJtLOOilGALM8vE1d6xiFVlkP8aXTjAI8bKFeXLBuJ3shjFiQpIYR6zWMFaXFOlsnHM4Ng/+RkAdVE2mEeC7WYAAAAASUVORK5CYII=&quot;); background-position: 0px 0px; background-repeat: no-repeat;">
+															
+														</span>
+													</div>
+												</div>
+
+												<span class="required_field">*</span>
+										</div>									
+									</div>
+									<div class="group_labels">
+										<div class="label_wrap">
+											<label for="sort_by_year">Country:</label>
+											<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitComboBox" id="widget_VIEWER_COUNTRY" role="combobox" widgetid="VIEWER_COUNTRY" aria-expanded="false" style="width: 151px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" dojoattachpoint="_buttonNode, _popupStateNode" role="presentation" popupactive="true"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"><span style="opacity: 1; left: 661.703px; top: 396.094px; width: 3px; min-width: 3px; height: 13px; position: absolute; border: none; display: inline; visibility: visible; z-index: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAANCAYAAABLjFUnAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZG9SsNQGIaf04qCQxAJbsLBQVzEn61j0pYiONQokmRrkkMVbXI4Of508ia8CAcXR0HvoOIgOHkJboI4ODgECU4i+EzP9w4vL3zQWPE6frcxB6PcmqDnyzCK5cwj0zQBYJCW2uv3twHyIlf8RMD7MwLgadXr+F3+xmyqjQU+gc1MlSmIdSA7s9qCuATc5EhbEFeAa/aCNog7wBlWPgGcpPIXwDFhFIN4BdxhGMXQAHCTyl3AtercArQLPTaHwwMrN1qtlvSyIlFyd1xaNSrlVp4WRhdmYFUGVPuq3Z7Wx0oGPZ//JYxiWdnbDgIQC5M6q0lPzOn3D8TD73fdMb4HL4Cp2zrb/4DrNVhs1tnyEsxfwI3+AvOlUD7FY+VVAAAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAECSURBVHjapNK9K8UBFIfxD12im8LEYLgZjcpgUFgUCUlZTJRkMpqUxR+hDFIGhWwGwy0MFiUxSCbZ5DXiYjnqdvvpvnim0+mcZ/ieU9U6tySBNEbQjBpMoANZnGIdl4VLKcm8YCPqbgzhAT1ox1mSrFpxjtCHLdygH5tJgymlMYhhtKH+r6FishYsYBpN0dvFHu5wi9okWToC/0AmcpqM+pd7PKMRDajDNb5xlS97Qyem0BsL8IT9uOAhXpGLvL/wGXO5fFkOO7FwHvJtLOOilGALM8vE1d6xiFVlkP8aXTjAI8bKFeXLBuJ3shjFiQpIYR6zWMFaXFOlsnHM4Ng/+RkAdVE2mEeC7WYAAAAASUVORK5CYII=&quot;); background-position: 0px 0px; background-repeat: no-repeat;"></span></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" role="textbox" aria-haspopup="true" aria-invalid="false" id="VIEWER_COUNTRY" tabindex="0" aria-required="true" value="United States" aria-owns="VIEWER_COUNTRY_popup"><input type="hidden" name="VIEWER_COUNTRY" value="USA"><span style="opacity: 1; left: 112px; top: 1.5px; width: 19px; min-width: 19px; height: 13px; position: absolute; border: none; display: inline; visibility: visible; z-index: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAANCAYAAABLjFUnAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZG9SsNQGIaf04qCQxAJbsLBQVzEn61j0pYiONQokmRrkkMVbXI4Of508ia8CAcXR0HvoOIgOHkJboI4ODgECU4i+EzP9w4vL3zQWPE6frcxB6PcmqDnyzCK5cwj0zQBYJCW2uv3twHyIlf8RMD7MwLgadXr+F3+xmyqjQU+gc1MlSmIdSA7s9qCuATc5EhbEFeAa/aCNog7wBlWPgGcpPIXwDFhFIN4BdxhGMXQAHCTyl3AtercArQLPTaHwwMrN1qtlvSyIlFyd1xaNSrlVp4WRhdmYFUGVPuq3Z7Wx0oGPZ//JYxiWdnbDgIQC5M6q0lPzOn3D8TD73fdMb4HL4Cp2zrb/4DrNVhs1tnyEsxfwI3+AvOlUD7FY+VVAAAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAECSURBVHjapNK9K8UBFIfxD12im8LEYLgZjcpgUFgUCUlZTJRkMpqUxR+hDFIGhWwGwy0MFiUxSCbZ5DXiYjnqdvvpvnim0+mcZ/ieU9U6tySBNEbQjBpMoANZnGIdl4VLKcm8YCPqbgzhAT1ox1mSrFpxjtCHLdygH5tJgymlMYhhtKH+r6FishYsYBpN0dvFHu5wi9okWToC/0AmcpqM+pd7PKMRDajDNb5xlS97Qyem0BsL8IT9uOAhXpGLvL/wGXO5fFkOO7FwHvJtLOOilGALM8vE1d6xiFVlkP8aXTjAI8bKFeXLBuJ3shjFiQpIYR6zWMFaXFOlsnHM4Ng/+RkAdVE2mEeC7WYAAAAASUVORK5CYII=&quot;); background-position: 0px 0px; background-repeat: no-repeat;"></span></div></div>
+										</div>									
+									</div>	
+									<div class="group_labels">
+										<div class="button" style="padding-top:20px;">
+											<button type="button" class="button_gradient alert_button" onclick="javascript:registerViewer();">
+												REGISTER
+											</button>
+										</div>	
+									</div>																							
+								</div>
+							</fieldset>
+							</form>
+						</div>
+				<div class="padder2">
+					<div style="width: 200px;">
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<!-- End of Wrapper -->
+
+<script type="text/javascript">
+	//Timeout is given to make code compatible to IE
+	setTimeout(function(){document.getElementById('USERNAME').focus();},1000);
+</script><!-- End Template component://xap-storefront/webapp/xap-storefront/common/login.ftl -->
+<!-- Begin Screen component://xap-storefront/widget/CommonScreens.xml#footer -->
+<!-- Begin Template component://xap-storefront/webapp/xap-storefront/common/footer.ftl -->
+
+<!-- Start: Code added for XAP-71 -->
+<script language="JavaScript" type="text/javascript">
+	function showBH() {
+		var targetURL = '&#47;xap-mlxi' + '/control/help';
+		targetURL = '/' + targetURL.substring(5);
+		window.open(targetURL, "XAP_WINDOW");
+	}
+</script>
+<!-- End: Code added for XAP-71 -->
+			<!-- End of Content -->
+			<hr>
+			<!-- Start of Footer -->
+			<div id="footer" class="background_color">
+				<div class="container">
+					<div class="copyright">
+					</div>
+							<div class="footer_notes"> 
+								
+							</div>
+						 
+						
+				</div>
+			</div>
+			<!-- End of Footer -->
+		</div>
+		<!-- End of Wrapper -->
+	
+
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#footer -->
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#app-decorator-1-column -->
+<!-- End Section Widget  -->
+<!-- End Section Widget  -->
+<!-- End Section Widget  -->
+<!-- End Section Widget  -->
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#login -->
+<div class="dijitTooltip dijitTooltipLeft" id="dijit__MasterTooltip_0" widgetid="dijit__MasterTooltip_0"><div class="dijitTooltipContainer dijitTooltipContents" dojoattachpoint="containerNode" role="alert"></div><div class="dijitTooltipConnector" dojoattachpoint="connectorNode"></div></div><div class="dijitPopup dijitComboBoxMenuPopup" role="presentation" id="widget_VIEWER_COUNTRY_dropdown" dijitpopupparent="VIEWER_COUNTRY" style="visibility: visible; top: 415.594px; z-index: 1000; left: 561.797px; display: none;"><ul class="dijitReset dijitMenu dijitComboBoxMenu" dojoattachevent="onmousedown:_onMouseDown,onmouseup:_onMouseUp,onmouseover:_onMouseOver,onmouseout:_onMouseOut" style="top: 0px; overflow-x: hidden; overflow-y: auto; width: 287.828px; height: 410px; visibility: visible;" id="VIEWER_COUNTRY_popup" dir="" widgetid="VIEWER_COUNTRY_popup"><li class="dijitMenuItem dijitMenuPreviousButton" dojoattachpoint="previousButton" role="option" id="VIEWER_COUNTRY_popup_prev" style="display: none;">Previous choices</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup0">Afghanistan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup1">Albania</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup2">Algeria</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup3">American Samoa</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup4">Angola</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup5">Anguilla</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup6">Antigua And Barbuda</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup7">Argentina</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup8">Armenia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup9">Aruba</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup10">Australia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup11">Austria</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup12">Azerbaijan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup13">Bahamas</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup14">Bahrain</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup15">Bangladesh</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup16">Barbados</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup17">Belarus</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup18">Belgium</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup19">Belize</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup20">Benin</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup21">Bermuda</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup22">Bhutan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup23">Bolivia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup24">Bonaire</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup25">Bosnia And Herzegowina</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup26">Botswana</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup27">Brazil</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup28">Brunei Darussalam</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup29">Bulgaria</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup30">Burkina Faso</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup31">Burundi</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup32">Cambodia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup33">Cameroon</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup34">Canada</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup35">Cape Verde</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup36">Cayman Islands</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup37">Central African Republic</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup38">Chad</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup39">Chile</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup40">China</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup41">Colombia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup42">Congo</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup43">Cook Islands</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup44">Costa Rica</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup45">Cote D'ivoire</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup46">Croatia (local Name: Hrvatska)</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup47">Curacao</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup48">Cyprus</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup49">Czech Republic</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup50">Denmark</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup51">Djibouti</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup52">Dominica</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup53">Dominican Republic</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup54">East Timor</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup55">Ecuador</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup56">Egypt</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup57">El Salvador</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup58">Equatorial Guinea</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup59">Eritrea</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup60">Estonia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup61">Ethiopia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup62">Faroe Islands</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup63">Fiji</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup64">Finland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup65">France</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup66">French Guiana</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup67">Gabon</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup68">Gambia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup69">Georgia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup70">Germany</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup71">Ghana</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup72">Gibraltar</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup73">Greece</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup74">Greenland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup75">Grenada</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup76">Guadeloupe</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup77">Guam</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup78">Guatemala</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup79">Guernsey</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup80">Guinea</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup81">Guinea-bissau</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup82">Guyana</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup83">Haiti</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup84">Holy See (vatican City State)</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup85">Honduras</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup86">Hong Kong</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup87">Hungary</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup88">Iceland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup89">India</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup90">Indonesia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup91">Ireland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup92">Israel</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup93">Italy</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup94">Jamaica</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup95">Japan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup96">Jordan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup97">Kazakhstan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup98">Kenya</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup99">Korea, Republic Of</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup100">Kuwait</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup101">Kyrgyzstan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup102">Lao People's Democratic Republic</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup103">Latvia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup104">Lebanon</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup105">Lesotho</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup106">Liberia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup107">Libyan Arab Jamahiriya</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup108">Liechtenstein</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup109">Lithuania</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup110">Luxembourg</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup111">Macau</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup112">Macedonia, The Former Yugoslav Republic Of</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup113">Madagascar</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup114">Malawi</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup115">Malaysia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup116">Maldives</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup117">Mali</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup118">Malta</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup119">Marshall Islands</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup120">Martinique</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup121">Mauritania</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup122">Mauritius</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup123">Mexico</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup124">Micronesia, Federated States Of</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup125">Moldova, Republic Of</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup126">Monaco</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup127">Mongolia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup128">Montserrat</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup129">Morocco</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup130">Mozambique</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup131">Namibia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup132">Nepal</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup133">Netherlands</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup134">Netherlands Antilles</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup135">New Caledonia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup136">New Zealand</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup137">Nicaragua</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup138">Niger</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup139">Nigeria</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup140">Norway</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup141">Oman</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup142">Pakistan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup143">Palau</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup144">Palestinian Territory, Occupied</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup145">Panama</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup146">Papua New Guinea</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup147">Paraguay</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup148">Peru</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup149">Philippines</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup150">Poland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup151">Portugal</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup152">Qatar</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup153">Reunion</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup154">Romania</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup155">Russian Federation</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup156">Rwanda</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup157">Saint Kitts And Nevis</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup158">Saint Lucia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup159">Saint Vincent And The Grenadines</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup160">Samoa</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup161">Saudi Arabia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup162">Scotland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup163">Senegal</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup164">Serbia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup165">Seychelles</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup166">Sierra Leone</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup167">Singapore</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup168">Slovakia (slovak Republic)</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup169">Slovenia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup170">South Africa</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup171">Spain</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup172">Sri Lanka</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup173">St. Barthelemy</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup174">St Maarten</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup175">Suriname</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup176">Swaziland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup177">Sweden</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup178">Switzerland</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup179">Taiwan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup180">Tanzania, United Republic Of</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup181">Thailand</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup182">Togo</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup183">Tonga</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup184">Trinidad And Tobago</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup185">Tunisia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup186">Turkey</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup187">Turkmenistan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup188">Turks And Caicos Islands</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup189">Uganda</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup190">Ukraine</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup191">United Arab Emirates</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup192">United Kingdom</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup193">United States</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup194">Uruguay</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup195">Uzbekistan</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup196">Vanuatu</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup197">Venezuela</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup198">Viet Nam</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup199">Virgin Islands (british)</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup200">Virgin Islands (u.s.)</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup201">Wallis And Futuna Islands</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup202">Yemen</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup203">Zambia</li><li class="dijitReset dijitMenuItem" role="option" id="VIEWER_COUNTRY_popup204">Zimbabwe</li><li class="dijitMenuItem dijitMenuNextButton" dojoattachpoint="nextButton" role="option" id="VIEWER_COUNTRY_popup_next" style="display: none;">More choices</li></ul></div>
+</body>
+</html>

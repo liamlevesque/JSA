@@ -302,32 +302,36 @@ body {
   display: inline-block !important;
   width: 100% !important;
   height: auto !important;
-  margin: 0 4px 10px 0;
-  border: 2px solid #1b75bc;
-  border-radius: 20px;
-  line-height: 30px;
-  padding: 0 10px;
-  box-sizing: border-box; }
+  margin: 0 4px 10px 0; }
   @media (min-width: 64em) {
     .CandPCheckboxOuter {
       width: 45% !important; } }
+  .CandPCheckboxOuter span {
+    color: #1b75bc !important;
+    font-weight: 700; }
   .CandPCheckboxOuter input {
     display: none; }
     .CandPCheckboxOuter input:checked ~ div {
       background-color: #E87511;
       border-color: #E87511;
       color: white; }
-      .CandPCheckboxOuter input:checked ~ div i {
+      .CandPCheckboxOuter input:checked ~ div:before {
         color: #E87511;
         background-color: white;
         border-color: white; }
-  .CandPCheckboxOuter label > div {
+      .CandPCheckboxOuter input:checked ~ div span {
+        color: white !important;
+        font-weight: 400; }
+  .CandPCheckboxOuter div {
     color: #1b75bc;
     padding: 0 10px;
     border: 2px solid #1b75bc;
     border-radius: 20px;
-    line-height: 30px; }
-    .CandPCheckboxOuter label > div i {
+    line-height: 30px;
+    cursor: pointer; }
+    .CandPCheckboxOuter div:before {
+      content: "\f00c";
+      font: normal normal normal 14px/1 FontAwesome;
       color: transparent;
       display: inline-block;
       background-color: rgba(27, 117, 188, 0.2);
@@ -336,11 +340,8 @@ body {
       width: 15px;
       height: 15px;
       margin-right: 5px; }
-    .CandPCheckboxOuter label > div:hover {
+    .CandPCheckboxOuter div:hover {
       background-color: rgba(27, 117, 188, 0.2); }
-  .CandPCheckboxOuter span {
-    color: #1b75bc !important;
-    font-weight: 700; }
 
 .cnp-selector {
   display: inline-block;
