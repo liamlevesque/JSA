@@ -59,6 +59,10 @@ html {
 	background-color: $c-brand;
 	margin-top: 0;
 
+	.wrapper{
+		background-color: transparent !important;
+	}
+
 	.login1_popup{
 		width: 40%;
 		margin-right:10%;
@@ -78,8 +82,8 @@ html {
 		//display: table-cell;
 
 		.padder h1{
-		    margin-bottom: 10px;
-		    text-align: center;
+		    margin-bottom: 20px;
+		    text-align: left;
 		    padding-bottom: 10px;
 		    font-size: 18px;
 		    line-height: 24px;
@@ -88,7 +92,7 @@ html {
 		    text-decoration: none;
 		    text-transform: capitalize;
 			margin-top: 0;
-			//border-bottom: 1px solid white;
+			border-bottom: 1px solid rgba(white,0.5);
 			color: white;
 		}
 
@@ -123,6 +127,7 @@ html {
 		margin-bottom: 15px;
 		font-weight: 400;
 		font-size: 0.8rem;
+		display: none;
 
 		p{
 			margin: 0;
@@ -134,7 +139,7 @@ form{
 		float: none !important;
 	}
 
-	.label_wrap, .group-labels .label_wrap{
+	.label_wrap{
 		label{
 			@include t-label;
 			font-size: 0.75rem;
@@ -171,7 +176,6 @@ form{
 
 			&::-webkit-input-placeholder{  
 			   color: rgba(white,0.5);
-			   letter-spacing: 1px;  
 			}
 
 			&::-moz-placeholder { /* Firefox 19+ */
@@ -191,11 +195,15 @@ form{
 
 
 
+
+
+
 .button{
 
 	display: block;
 	text-align: center;
 	margin-top: 30px;
+	margin-right: 0;
 
 	button{	
 	    min-width: 100px;
@@ -226,12 +234,72 @@ form{
 	background-color: rgba(white,0.8);
 	border: none;
 	border-radius: 10px;
+	padding: 20px;
 
 
 	//display: table-cell;
 }
 
+	.padder1{
+		float: none !important;
+		width: 100% !important;
+		margin: 0 !important;
+	}
+
+	.form_fields{
+		float: none;
+		width: 100%;
+		margin: 0 !important;
+		box-sizing: border-box;
+	}
+
+	.dijitComboBox{
+		border-radius: 20px;
+    	padding: 5px 10px;
+    	width: 100% !important;
+
+		.dijitButtonNode{
+		
+			border-width: 0 !important;
+			background: transparent;
+
+		}
+	}
+
+
+
+	.group_labels .label_wrap{
+		float: none!important;
+		width: 100%;	
+		box-sizing: border-box;
+		position: relative;
+
+		label{
+			margin-bottom: 5px;
+		}
+
+		.required_field{
+			position: absolute;
+			top: 3px;
+			right: 10px;
+		}
+
+		.dijitValidationTextBox, .dijitTextBox{
+			width: 100%;
+			box-sizing: border-box;
+			margin: 0;
+			border-radius: 20px;
+			border: 1px solid transparent;
+
+			&:focus, &.dijitTextBoxFocused{
+				border-color: $c-active-contrast;
+				outline: none;
+			}
+		}
+
+	}
+
 	.form_fields_header{
-		text-transform: uppercase;
-		letter-spacing: 1px;
+		//text-transform: uppercase;
+		//letter-spacing: 1px;
 	}

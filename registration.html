@@ -1,0 +1,257 @@
+<html><head>
+    
+    <title>Japan Super Auction | Live Auction</title>
+    <link href="images/favicon.ico" rel="Shortcut Icon">
+
+    <link href="css/static/standard.css" rel="stylesheet" type="text/css">
+    <link href="css/static/framework.css" rel="stylesheet" type="text/css">
+    <link href="css/static/admin.css" rel="stylesheet" type="text/css">
+    <link href="css/static/custom_mlxi.css" rel="stylesheet" type="text/css">
+    
+    <style type="text/css">
+	  	@import "https://jsa.uat.ringlots.com/images/dojo_1.5/dijit/themes/nihilo/nihilo.css";
+	</style>
+
+	<link href="css/static/static.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="nihilo" onload="checkSessionTimeOut()" data-pinterest-extension-installed="cr1.39.1">
+		<!-- Start of Wrapper -->
+		<div id="wrapper">
+			<div id="header_wrapper">
+			<!-- Start of Menu Bar -->
+			<div id="menu" class="background_color">
+				<div id="date">
+					June 06, 2016      Auction Currency = JPY
+				</div>
+				
+						<!-- Start of Login Info -->
+						
+						<!-- End of Login Info -->
+			</div>
+			<!-- Start of Header R0_0.253 -->		
+			<div id="header" class="header">
+				<div class="container">
+					<!-- Start of Logo -->
+					<div id="logo" class="logo"></div>
+					<div id="rightlogo" class="rightlogo"></div>
+					<div>
+					</div>
+					<!-- End of Logo -->
+					<div class="clear">
+						<!-- Start of Client Info -->
+						<div id="client_info">
+							<div class="client_name">
+								
+								Auctions Powered by Xcira
+							</div>
+							<br>
+							<div class="auction_type">
+								Japan Super Auction
+							</div>
+						</div>
+						<!-- End of Client Info -->
+					</div>
+				</div>
+								<!-- Start of Navigation -->
+								<div id="navigation">
+									<ul class="site_nav">
+										
+									</ul>
+								</div>
+								<!-- End of Navigation -->
+									<input type="hidden" value="3600" name="sessionTimeoutInterval" id="sessionTimeoutInterval">
+									<input type="hidden" value="" name="lastAccessTimestamp" id="lastAccessTimestamp">
+								<!-- Start of Navigation -->
+								<!--
+								<div id="navigation">
+									<ul class="site_nav">
+										<li><a href="">Link 1</a></li>
+										<li><a href="">This is a long link</a></li>
+										<li><a href="">Link 3</a></li>
+										<li><a href="">Link 4</a></li>
+									</ul>
+								</div>
+								-->
+								<!-- End of Navigation -->					
+			</div>
+			<!-- End of Header -->
+			</div>
+			<!-- Start of Content --><!-- End Template component://xap-storefront/webapp/xap-storefront/common/header.ftl -->
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#header -->
+<!-- Begin Template component://xap-storefront/webapp/xap-storefront/common/login.ftl -->
+
+<style type="text/css">
+  	@import "/images/dojo_1.5/dijit/themes/nihilo/nihilo.css";
+</style>
+
+<script type="text/javascript" src="/xap-storefront/images/js/dojo_1_6_1/dojo/dojo.js" djconfig="parseOnLoad: true"></script>
+<script type="text/javascript" src="/xap-storefront/images/js/dojo_1_6_1/dojo/xapdojo1_6_1.js?R0_0.253" djconfig="parseOnLoad: true"></script>
+
+<script language="JavaScript" type="text/javascript"> 	
+	function showForgotPassword() {
+		showForgotPasswordPopup('Forgot Password Error&#33;', 'The username entered is invalid.', 'Email Sent', 'A new password has been sent to your email address on file.', '&#47;xap-mlxi', 'en');
+	}
+	function showForgotUserid() {
+		showForgotUseridPopup('Forgot Username Error&#33;', 'The email entered is invalid.', 'Email Sent', 'An email has been sent to your email id with your username.', '&#47;xap-mlxi', 'en');
+	}
+	
+	function redirectToRegistration(registerUrl){
+		window.location=registerUrl;
+	}
+	function registerViewer(){
+		var form = dijit.byId("viewerRegistrationForm");
+		if(form.isValid()) {
+			var productStoreId = dojo.byId("productStoreId").value;
+			var viewerName = dojo.byId("viewerName").value;
+			var viewerEmail = dojo.byId("viewerEmail").value;
+			var viewerCountry = dijit.byId("VIEWER_COUNTRY").value;
+			
+			var targetURL = '&#47;xap-mlxi' + '/control/createViewer';
+			targetURL = '/' + targetURL.substring(5);
+			dojo.xhrGet({
+				url : targetURL,
+				handleAs: "json",
+				preventCache: true,
+				sync: true,
+				content : {
+					productStoreId: productStoreId,
+				  	viewerName: viewerName,
+				  	viewerEmail: viewerEmail, 
+				  	viewerCountry: viewerCountry
+				},
+				// The load function will be called on a successful response.
+				load : function(response){
+					//console.log("response", response);
+					if(response.message == "success") {
+						dojo.byId("viewerName").value = '';
+						dojo.byId("viewerEmail").value = '';
+						dojo.byId("VIEWER_COUNTRY").value = 'United States';
+						
+						showPopUpMessage("EMail Sent", "Email is sent");
+					}
+				},
+				// The error function will be called in an error case.
+				error : function(response){  
+					//console.log(" error ");
+				}				  
+			});		
+		} else {
+			showPopUpMessage("Registration Error", "Please enter all the fields with valid data");
+			return false;
+		}
+	}	
+</script>
+
+
+		
+		<!-- Start of Wrapper -->
+		<div id="content">
+			<div class="wrapper">
+			<!-- Start of Alert -->
+			<div class="login1_popup">
+				<div class="padder">
+					<h1>Sign In</h1>
+					
+					<form method="post" action="/xap-mlxi/control/login" name="loginform" id="loginform">
+					<input type="hidden" id="requiresDuplicateLogin" name="requiresDuplicateLogin" value="">
+					<input type="hidden" name="pageLocale" value="en">
+					<div class="float_left">
+						<div class="label_wrap">
+						<label for="username">Username:</label>
+						<input style="width:140px;" type="text" id="USERNAME" name="USERNAME" value="" size="20">
+						</div>						
+						<div class="label_wrap">
+						<label for="password">Password:</label>
+						<input style="width:140px;" type="password" id="PASSWORD" name="PASSWORD" value="" size="20">
+						</div>
+					</div>
+					<div class="forgot_password"><a href="javascript:showForgotPassword();">Forgot Password</a></div>
+					<div class="forgot_password"><a href="javascript:showForgotUserid();">Forgot Username</a></div>
+					<div class="button">
+						<button type="submit" id="btn_login" class="button_gradient">
+							Sign In
+						</button>
+					</div>
+					</form>
+				</div>
+			</div>
+			
+			<!-- End of Alert -->
+			<div class="regsitration_popup">
+						<div class="padder1" style="float:left;width:55%; margin:10px;color:#000000;">
+							<div>
+							
+			
+			<div id="login_points">
+				<p> &middot; View time-based bidding activity in real time</p>
+				<p> &middot; Place bids on items that interest you</p>
+				<p> &middot; Receive email or SMS notifications</p>
+				<p> &nbsp;</p>
+			</div>
+		
+							</div>
+							<div style="font-size:10px;margin-top:10px">
+									
+			<p> Japan Super Auction registration is hosted on a secure server. 
+				<br>
+				We will not share your personal information with third parties.
+				<br><br>
+			</p>
+		
+							</div>
+						</div>					
+				<div class="padder2">
+					<div style="width: 200px;">
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<!-- End of Wrapper -->
+
+<script type="text/javascript">
+	//Timeout is given to make code compatible to IE
+	setTimeout(function(){document.getElementById('USERNAME').focus();},1000);
+</script><!-- End Template component://xap-storefront/webapp/xap-storefront/common/login.ftl -->
+<!-- Begin Screen component://xap-storefront/widget/CommonScreens.xml#footer -->
+<!-- Begin Template component://xap-storefront/webapp/xap-storefront/common/footer.ftl -->
+
+<!-- Start: Code added for XAP-71 -->
+<script language="JavaScript" type="text/javascript">
+	function showBH() {
+		var targetURL = '&#47;xap-mlxi' + '/control/help';
+		targetURL = '/' + targetURL.substring(5);
+		window.open(targetURL, "XAP_WINDOW");
+	}
+</script>
+<!-- End: Code added for XAP-71 -->
+			<!-- End of Content -->
+			<hr>
+			<!-- Start of Footer -->
+			<div id="footer" class="background_color">
+				<div class="container">
+					<div class="copyright">
+					</div>
+							<div class="footer_notes"> 
+								
+							</div>
+						 
+						
+				</div>
+			</div>
+			<!-- End of Footer -->
+		</div>
+		<!-- End of Wrapper -->
+	
+
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#footer -->
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#app-decorator-1-column -->
+<!-- End Section Widget  -->
+<!-- End Section Widget  -->
+<!-- End Section Widget  -->
+<!-- End Section Widget  -->
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#login -->
+</body>
+</html>
