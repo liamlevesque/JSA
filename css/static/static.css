@@ -20,7 +20,11 @@ html {
   min-width: 768px;
   width: 100%;
   height: 100%;
-  overflow-y: auto; }
+  overflow-y: auto;
+  background-color: #1b75bc; }
+
+body {
+  background-color: transparent; }
 
 #header #logo {
   background: url("../../images/mlxi_jsa.png") no-repeat center top; }
@@ -43,8 +47,9 @@ html {
   display: none; }
 
 #content {
-  background-color: #1b75bc;
-  margin-top: 0; }
+  background-color: transparent;
+  margin-top: 0;
+  height: auto; }
   #content .wrapper {
     background-color: transparent !important; }
   #content .login1_popup {
@@ -57,6 +62,8 @@ html {
     padding: 0;
     border: 0;
     background-color: transparent; }
+    #content .login1_popup form .label_wrap input {
+      color: white; }
     #content .login1_popup form .label_wrap label {
       color: white; }
     #content .login1_popup .padder h1 {
@@ -106,37 +113,33 @@ form .label_wrap label {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.75rem;
-  font-weight: 400;
   margin-left: 10px;
   color: #515151; }
 form .label_wrap .dijitValidationTextBox {
   margin-top: 5px; }
   form .label_wrap .dijitValidationTextBox input {
     margin-top: 0; }
-form .label_wrap input {
+form .label_wrap input:not([type='checkbox']):not(.dijitArrowButtonInner) {
   width: 100% !important;
-  margin-top: 5px;
-  padding: 8px 15px;
-  color: white;
+  padding: 8px 15px !important;
   font-size: 16px;
   font-weight: 400;
-  color: white;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.2);
   border: 2px solid transparent; }
-  form .label_wrap input:focus {
+  form .label_wrap input:not([type='checkbox']):not(.dijitArrowButtonInner):focus {
     outline: none;
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.2); }
-  form .label_wrap input::-webkit-input-placeholder {
+  form .label_wrap input:not([type='checkbox']):not(.dijitArrowButtonInner)::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.5); }
-  form .label_wrap input::-moz-placeholder {
+  form .label_wrap input:not([type='checkbox']):not(.dijitArrowButtonInner)::-moz-placeholder {
     /* Firefox 19+ */
     color: pink; }
-  form .label_wrap input:-ms-input-placeholder {
+  form .label_wrap input:not([type='checkbox']):not(.dijitArrowButtonInner):-ms-input-placeholder {
     /* IE 10+ */
     color: pink; }
-  form .label_wrap input:-moz-placeholder {
+  form .label_wrap input:not([type='checkbox']):not(.dijitArrowButtonInner):-moz-placeholder {
     /* Firefox 18- */
     color: pink; }
 
@@ -145,21 +148,24 @@ form .label_wrap input {
   text-align: center;
   margin-top: 30px;
   margin-right: 0; }
-  .button button {
-    min-width: 100px;
-    padding: 0 15px;
-    line-height: 30px;
-    border: none;
-    background: #E87511;
-    color: white;
-    cursor: pointer;
-    margin-right: 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700; }
-    .button button:hover {
-      background-color: #b85d0e; }
+
+button, .alert_button, .button_gradient {
+  min-width: 100px;
+  padding: 0 15px;
+  line-height: 30px;
+  border: none;
+  background: #E87511;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-right: 0;
+  outline: none; }
+  button:hover, .alert_button:hover, .button_gradient:hover {
+    background-color: #b85d0e; }
 
 .regsitration_popup {
   width: 48%;
@@ -185,29 +191,190 @@ form .label_wrap input {
 
 .dijitComboBox {
   border-radius: 20px;
-  padding: 5px 10px;
   width: 100% !important; }
   .dijitComboBox .dijitButtonNode {
     border-width: 0 !important;
     background: transparent; }
 
-.group_labels .label_wrap {
+.label_wrap {
+  position: relative; }
+
+.required_field {
+  position: absolute;
+  top: 15px;
+  left: -5px; }
+
+.group_labels {
+  margin-bottom: 0; }
+  .group_labels .label_wrap {
+    float: none !important;
+    width: 100%;
+    box-sizing: border-box; }
+
+.label_wrap {
   float: none !important;
   width: 100%;
   box-sizing: border-box;
-  position: relative; }
-  .group_labels .label_wrap label {
-    margin-bottom: 5px; }
-  .group_labels .label_wrap .required_field {
-    position: absolute;
-    top: 3px;
-    right: 10px; }
-  .group_labels .label_wrap .dijitValidationTextBox, .group_labels .label_wrap .dijitTextBox {
+  position: relative;
+  margin-bottom: 0 !important; }
+  .label_wrap .dijitValidationTextBox, .label_wrap .dijitTextBox {
     width: 100%;
     box-sizing: border-box;
     margin: 0;
     border-radius: 20px;
+    background-image: none;
     border: 1px solid transparent; }
-    .group_labels .label_wrap .dijitValidationTextBox:focus, .group_labels .label_wrap .dijitValidationTextBox.dijitTextBoxFocused, .group_labels .label_wrap .dijitTextBox:focus, .group_labels .label_wrap .dijitTextBox.dijitTextBoxFocused {
+    .label_wrap .dijitValidationTextBox:focus, .label_wrap .dijitValidationTextBox.dijitTextBoxFocused, .label_wrap .dijitTextBox:focus, .label_wrap .dijitTextBox.dijitTextBoxFocused {
       border-color: #E87511;
       outline: none; }
+  .label_wrap #stateContainer {
+    display: block !important; }
+
+.nihilo .dijitComboBox .dijitButtonNode {
+  padding: 7px 10px !important; }
+
+.dijitArrowButtonInner {
+  width: 12px !important; }
+
+.label_wrap label {
+  margin-bottom: 5px;
+  margin-top: 15px; }
+
+/****************************
+	REGISTRATION STYLES
+*****************************/
+.notification_popup {
+  background-color: transparent;
+  border: none;
+  padding-left: 0;
+  max-width: 1000px;
+  margin: 0 auto; }
+  .notification_popup h1 {
+    color: white; }
+    .notification_popup h1 ~ p {
+      color: white; }
+    .notification_popup h1 ~ a {
+      padding-right: 0 !important; }
+      .notification_popup h1 ~ a:hover {
+        color: #E87511; }
+
+#userform .form_fields {
+  display: inline-block;
+  vertical-align: top; }
+  #userform .form_fields:last-child {
+    float: right; }
+#userform .form_fields_header {
+  color: white;
+  font-weight: 400;
+  font-size: 16px; }
+#userform .dijitInputInner {
+  border: 0;
+  border-radius: 20px; }
+#userform .dijitComboBox {
+  height: auto !important; }
+#userform #shippingStateContainer, #userform #billingStateContainer {
+  display: block !important; }
+#userform fieldset {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  border: 0; }
+  #userform fieldset .padder {
+    border: 0;
+    padding: 40px; }
+    #userform fieldset .padder > label {
+      font-weight: 700;
+      margin: 20px 0 0;
+      display: block;
+      color: #515151;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #515151; }
+      #userform fieldset .padder > label + .group_labels {
+        padding-left: 15px; }
+        #userform fieldset .padder > label + .group_labels .label_wrap {
+          margin-top: 15px; }
+  #userform fieldset .dijitTextBox .dijitInputField {
+    height: auto !important;
+    padding: 0 !important; }
+  #userform fieldset .dijitValidationIcon {
+    width: 48px !important;
+    margin-top: 5px; }
+  #userform fieldset .small_text {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    padding: 0 15px;
+    margin-top: 5px; }
+
+.agreement {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px 40px;
+  box-sizing: border-box; }
+
+.agreement_text {
+  padding: 0;
+  width: 100%;
+  border: 0;
+  box-sizing: border-box;
+  margin-bottom: 30px; }
+  .agreement_text .label_wrap {
+    margin-top: 15px; }
+
+.agreement_buttons {
+  padding: 0 20px;
+  text-align: center;
+  width: 400px;
+  margin: 0 auto; }
+  .agreement_buttons .button {
+    width: auto;
+    display: inline-block;
+    margin-top: 0; }
+    .agreement_buttons .button:first-child {
+      float: right; }
+    .agreement_buttons .button:last-child {
+      float: left; }
+  .agreement_buttons .cancel_button #btn_cancel {
+    background-color: transparent;
+    color: #E87511;
+    border: 2px solid #E87511; }
+    .agreement_buttons .cancel_button #btn_cancel:hover {
+      background-color: #E87511; }
+
+.dijitDialogUnderlayWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none !important; }
+  .dijitDialogUnderlayWrapper .dijitDialogUnderlay {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(255, 255, 255, 0.9); }
+
+.nihilo .dijitDialog {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none; }
+  .nihilo .dijitDialog .dijitDialogPaneContent {
+    background: transparent;
+    border: 0; }
+
+.dijitDialog {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: visible;
+  display: none !important; }
+  .dijitDialog > div, .dijitDialog > div > div {
+    overflow: visible; }
+  .dijitDialog .alert {
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 3px 2px 13px 0px rgba(50, 50, 50, 0.63);
+    padding: 15px; }
+    .dijitDialog .alert h2 {
+      background-color: transparent;
+      color: #1b75bc; }

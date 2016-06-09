@@ -23,7 +23,7 @@
 			<!-- Start of Menu Bar -->
 			<div id="menu" class="background_color">
 				<div id="date">
-					June 06, 2016      Auction Currency = JPY
+					June 08, 2016      
 				</div>
 				
 						<!-- Start of Login Info -->
@@ -80,141 +80,486 @@
 			</div>
 			<!-- Start of Content --><!-- End Template component://xap-storefront/webapp/xap-storefront/common/header.ftl -->
 <!-- End Screen component://xap-storefront/widget/CommonScreens.xml#header -->
-<!-- Begin Template component://xap-storefront/webapp/xap-storefront/common/login.ftl -->
-
-<style type="text/css">
-  	@import "/images/dojo_1.5/dijit/themes/nihilo/nihilo.css";
-</style>
-
-<script type="text/javascript" src="/xap-storefront/images/js/dojo_1_6_1/dojo/dojo.js" djconfig="parseOnLoad: true"></script>
-<script type="text/javascript" src="/xap-storefront/images/js/dojo_1_6_1/dojo/xapdojo1_6_1.js?R0_0.253" djconfig="parseOnLoad: true"></script>
-
-<script language="JavaScript" type="text/javascript"> 	
-	function showForgotPassword() {
-		showForgotPasswordPopup('Forgot Password Error&#33;', 'The username entered is invalid.', 'Email Sent', 'A new password has been sent to your email address on file.', '&#47;xap-mlxi', 'en');
+<!-- Begin Section Widget  -->
+<!-- Begin Section Widget  -->
+<!-- Begin Template component://xap-storefront/webapp/xap-storefront/common/customer.ftl -->
+<script language="JavaScript" type="text/javascript">
+	function showTC() {
+		var targetURL = '&#47;xap-mlxi' + '/control/popupTermsAndConds';
+		targetURL = '/' + targetURL.substring(5);
+		window.open(targetURL, "XAP_WINDOW");
 	}
-	function showForgotUserid() {
-		showForgotUseridPopup('Forgot Username Error&#33;', 'The email entered is invalid.', 'Email Sent', 'An email has been sent to your email id with your username.', '&#47;xap-mlxi', 'en');
+	var currentElement = '';
+	
+	function openChangePasswordModal(userId){
+		var targetUrl = '&#47;xap-mlxi' + '/control/promptPassword';
+		targetUrl = '/' + targetUrl.substring(5);
+			isValidSession('&#47;xap-mlxi', 'changepassword', targetUrl, '');
+		
 	}
 	
-	function redirectToRegistration(registerUrl){
-		window.location=registerUrl;
+	function shippingSameAsPersonal(){	
+		if(dojo.byId("shippingAsPersonal").checked){
+			if(dojo.byId("companyName").value){
+				dojo.byId("shippingTo").value = dojo.byId("companyName").value;
+			} else {
+				dojo.byId("shippingTo").value = dojo.byId("lastName").value + ", " + dojo.byId("firstName").value;
+			}
+			if(dojo.byId("shippingAddress1")){
+				dojo.byId("shippingAddress1").value = dojo.byId("address1").value;
+			}
+			if(dojo.byId("shippingAddress2")){
+				dojo.byId("shippingAddress2").value = dojo.byId("address2").value;
+			}
+			if(dojo.byId("shippingCity")){
+				dojo.byId("shippingCity").value = dojo.byId("city").value;
+			}
+			if(dojo.byId("SHIPPING_STATE")){
+				dojo.byId("SHIPPING_STATE").value = dojo.byId("CUSTOMER_STATE").value;
+				dijit.byId('SHIPPING_STATE').set('value', dijit.byId("CUSTOMER_STATE").value);
+			}
+			if(dojo.byId("SHIPPING_COUNTRY")){
+				dojo.byId("SHIPPING_COUNTRY").value = dojo.byId("CUSTOMER_COUNTRY").value;
+			}
+			if(dojo.byId("shippingMailCode")){
+				dojo.byId("shippingMailCode").value = dojo.byId("mailCode").value;
+			}	
+		}							
 	}
-	function registerViewer(){
-		var form = dijit.byId("viewerRegistrationForm");
-		if(form.isValid()) {
-			var productStoreId = dojo.byId("productStoreId").value;
-			var viewerName = dojo.byId("viewerName").value;
-			var viewerEmail = dojo.byId("viewerEmail").value;
-			var viewerCountry = dijit.byId("VIEWER_COUNTRY").value;
-			
-			var targetURL = '&#47;xap-mlxi' + '/control/createViewer';
-			targetURL = '/' + targetURL.substring(5);
-			dojo.xhrGet({
-				url : targetURL,
-				handleAs: "json",
-				preventCache: true,
-				sync: true,
-				content : {
-					productStoreId: productStoreId,
-				  	viewerName: viewerName,
-				  	viewerEmail: viewerEmail, 
-				  	viewerCountry: viewerCountry
-				},
-				// The load function will be called on a successful response.
-				load : function(response){
-					//console.log("response", response);
-					if(response.message == "success") {
-						dojo.byId("viewerName").value = '';
-						dojo.byId("viewerEmail").value = '';
-						dojo.byId("VIEWER_COUNTRY").value = 'United States';
-						
-						showPopUpMessage("EMail Sent", "Email is sent");
-					}
-				},
-				// The error function will be called in an error case.
-				error : function(response){  
-					//console.log(" error ");
-				}				  
-			});		
-		} else {
-			showPopUpMessage("Registration Error", "Please enter all the fields with valid data");
-			return false;
+	
+	function billingSameAsShipping(){
+		if(dojo.byId("billingAsShipping").checked){
+			if(dojo.byId("shippingTo").value){
+				dojo.byId("billingTo").value = dojo.byId("shippingTo").value;
+			}
+			if(dojo.byId("billingAddress1")){
+				dojo.byId("billingAddress1").value = dojo.byId("shippingAddress1").value;
+			}
+			if(dojo.byId("billingAddress2")){
+				dojo.byId("billingAddress2").value = dojo.byId("shippingAddress2").value;
+			}
+			if(dojo.byId("billingCity")){
+				dojo.byId("billingCity").value = dojo.byId("shippingCity").value;
+			}
+			if(dojo.byId("BILLING_STATE")){
+				dojo.byId("BILLING_STATE").value = dojo.byId("SHIPPING_STATE").value;
+				dijit.byId('BILLING_STATE').set('value', dijit.byId("SHIPPING_STATE").value);
+			}
+			if(dojo.byId("BILLING_COUNTRY")){
+				dojo.byId("BILLING_COUNTRY").value = dojo.byId("SHIPPING_COUNTRY").value;
+			}
+			if(dojo.byId("billingMailCode")){
+				dojo.byId("billingMailCode").value = dojo.byId("shippingMailCode").value;
+			}	
+		}							
+	}
+	
+	function showDropdown(){
+		if(dojo.byId("companyTypeDD")){
+			dojo.byId("companyTypeDD").style.visibility="visible";
 		}
-	}	
+		dojo.byId("stateDD").style.visibility="visible";
+		dojo.byId("countryDD").style.visibility="visible";
+		if(dojo.byId("sstateDD")) {
+			dojo.byId("sstateDD").style.visibility="visible";
+		}		
+		if(dojo.byId("scountryDD")) {
+			dojo.byId("scountryDD").style.visibility="visible";	
+		}	
+		if(dojo.byId("bstateDD")) {
+			dojo.byId("bstateDD").style.visibility="visible";
+		}
+		if(dojo.byId("bcountryDD")) {
+			dojo.byId("bcountryDD").style.visibility="visible";			
+		}
+		if(dojo.byId("itemsPerPageDD")){
+			dojo.byId("itemsPerPageDD").style.visibility="visible";
+		}
+	}
+	
+	function showHideText(box,id) {
+		 var addtionalInfoDiv = document.getElementById(id);
+		 var checkboxes = document.userform.NOTIFICATION_DT_PREFERENCE;
+		 if(checkboxes[1].checked == true){
+		 	 addtionalInfoDiv.style.display = "";
+		 } else {
+		 	addtionalInfoDiv.style.display = "none";
+		 }
+	}
+	
+	dojo.addOnLoad(showDropdown);
 </script>
 
-
-		
-		<!-- Start of Wrapper -->
-		<div id="content">
-			<div class="wrapper">
-			<!-- Start of Alert -->
-			<div class="login1_popup">
-				<div class="padder">
-					<h1>Sign In</h1>
-					
-					<form method="post" action="/xap-mlxi/control/login" name="loginform" id="loginform">
-					<input type="hidden" id="requiresDuplicateLogin" name="requiresDuplicateLogin" value="">
-					<input type="hidden" name="pageLocale" value="en">
-					<div class="float_left">
-						<div class="label_wrap">
-						<label for="username">Username:</label>
-						<input style="width:140px;" type="text" id="USERNAME" name="USERNAME" value="" size="20">
-						</div>						
-						<div class="label_wrap">
-						<label for="password">Password:</label>
-						<input style="width:140px;" type="password" id="PASSWORD" name="PASSWORD" value="" size="20">
+			
+<div id="content" class="claro">
+	<!-- Start of Sort Box -->
+	<div class="notification_popup">
+		<!-- Start of Padding -->
+		<div class="padder">
+			<h1>User Registration</h1>
+					<a href="/xap-mlxi/control/newcustomer?pageLocale=ja" style="float: right;padding-right: 110px;">Japanese</a>
+		<p>Mandatory fields identified by asterisk (*)</p>
+		<form method="post" action="/xap-mlxi/control/createcustomer" id="userform" name="userform">
+			<input type="hidden" id="emailProductStoreId" name="emailProductStoreId" value="9045">
+			<input type="hidden" name="BIDDER_ID" value="">
+			<input type="hidden" name="partyId" value="">
+			<input type="hidden" name="IS_UPDATE_OPERATION" value="NO">
+			<input type="hidden" name="requiresMultiLevelRegistrationInd" value="N">
+			<input type="hidden" name="pageLocale" value="en">
+				<input type="hidden" name="completedFullRegistration" value="Y">
+			<div class="form_fields_container">
+				<div class="form_fields" style="width:45% !important">
+					<div class="form_fields_header">Personal Information</div>
+					<fieldset>
+						<div class="padder">
+							<div class="group_labels">
+							<div class="label_wrap">
+							<label for="sort_by_year">First Name:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_firstName" role="presentation" widgetid="firstName"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="USER_FIRST_NAME" type="text" aria-invalid="true" id="firstName" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+							</div>
+							<div class="label_wrap">
+							<label for="sort_by_year">Last Name:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_lastName" role="presentation" widgetid="lastName"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="USER_LAST_NAME" type="text" aria-invalid="true" id="lastName" tabindex="0" aria-required="true" value=""></div></div> <span class="required_field">*</span>
+							</div>
+							</div>
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">Company Name:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox" id="widget_companyName" role="presentation" widgetid="companyName"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="COMPANY_NAME" type="text" aria-invalid="false" id="companyName" tabindex="0" value=""></div></div>
+									</div>									
+								</div>
+							<div class="group_labels">
+							<div class="label_wrap">
+							<label for="sort_by_year">Address 1:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft textBox dijitTextBox dijitValidationTextBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_address1" role="presentation" widgetid="address1"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_ADDRESS1" type="text" aria-invalid="true" id="address1" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+							</div>
+							<div class="label_wrap">
+							<label for="sort_by_year">Address 2:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox" id="widget_address2" role="presentation" widgetid="address2"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_ADDRESS2" type="text" aria-invalid="false" id="address2" tabindex="0" value=""></div></div>
+							</div>
+							</div>
+							<div class="label_wrap" id="countryDD" style="visibility: visible;">
+							<label for="sort_by_make">Country:</label>
+							
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitComboBox" id="widget_CUSTOMER_COUNTRY" role="combobox" widgetid="CUSTOMER_COUNTRY" style="width: 151px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" dojoattachpoint="_buttonNode, _popupStateNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" role="textbox" aria-haspopup="true" aria-invalid="false" id="CUSTOMER_COUNTRY" tabindex="0" aria-required="true" value="United States"><input type="hidden" name="CUSTOMER_COUNTRY" value="USA"></div></div>
+							<script type="text/javascript">
+								getStateListChr('USA', 'stateContainer', '&#47;xap-mlxi' + '/control/states', '', 'CUSTOMER_STATE', 'CUSTOMER_STATE');
+							</script>
+							<span class="required_field">*</span>								
+							</div>
+							
+							<div class="group_labels">
+							<div class="label_wrap">
+							<label for="sort_by_year">City:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_city" role="presentation" widgetid="city"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_CITY" type="text" aria-invalid="true" id="city" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+							</div>
+							<div class="label_wrap" id="stateDD" style="visibility: visible;">
+							<label for="sort_by_year">State or Province:</label>
+											
+							<div id="stateContainer" style="display:inline-block;"><div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitComboBox" id="widget_CUSTOMER_STATE" role="combobox" widgetid="CUSTOMER_STATE"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" dojoattachpoint="_buttonNode, _popupStateNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" role="textbox" aria-haspopup="true" aria-invalid="false" id="CUSTOMER_STATE" tabindex="0" aria-required="true" value="Select State"><input type="hidden" name="CUSTOMER_STATE" value="-1"></div></div></div>
+							<span class="required_field" style="margin-left:-2px; vertical-align:super">*</span>
+							</div>
+							</div>							
+							
+							<div class="label_wrap">
+							<label for="sort_by_model">Zip/Postal Code:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_mailCode" role="presentation" widgetid="mailCode"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_POSTAL_CODE" type="text" maxlength="12" aria-invalid="true" id="mailCode" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+							</div>
+							
+							<div class="group_labels">
+							<div class="label_wrap">
+							<label for="sort_by_year">Work Phone:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox phone textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_workphone3" role="presentation" widgetid="workphone3"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_WORK_CONTACT" type="text" maxlength="17" aria-invalid="true" id="workphone3" tabindex="0" aria-required="true" value=""></div></div>
+							<span class="required_field">*</span>
+							</div>
+							<div class="label_wrap">
+							<label for="sort_by_stock">Mobile:</label>
+		                	<div class="dijit dijitReset dijitInlineTable dijitLeft phone textBox dijitTextBox dijitValidationTextBox" id="widget_mobile3" role="presentation" widgetid="mobile3"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_MOBILE_CONTACT" type="text" maxlength="17" aria-invalid="false" id="mobile3" tabindex="0" value=""></div></div>
+							</div>
+							</div>
+							<div class="group_labels">
+								<div class="label_wrap">
+								<label for="sort_by_year">Home Phone:</label>
+								<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox phone textBox" id="widget_phone3" role="presentation" widgetid="phone3"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_HOME_CONTACT" type="text" maxlength="17" aria-invalid="false" id="phone3" tabindex="0" value=""></div></div>					
+								</div>
+							<div class="label_wrap">
+							<label for="sort_by_stock">Fax Number:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft phone textBox dijitTextBox dijitValidationTextBox" id="widget_fax3" role="presentation" widgetid="fax3"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_FAX_CONTACT" type="text" maxlength="17" aria-invalid="false" id="fax3" tabindex="0" value=""></div></div>					
+							</div>
+							</div>
+							
+						</div>
+					</fieldset>
+				</div>
+					<div class="form_fields" style="width:45% !important">
+						<div class="form_fields_header">Shipping Information</div>
+						<fieldset>
+							<div class="padder">
+								<div class="group_labels">
+									<div class="label_wrap">
+										<div class="checkboxes">
+											<input id="shippingAsPersonal" name="SHIPPING_AS_PERSONAL" value="shippingAsPersonal" type="checkbox" onclick="javascript:shippingSameAsPersonal();"> 
+											<label>Same as Personal Address</label>		
+										</div>					   		
+									</div>
+								</div>	
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">To:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft textBox dijitTextBox dijitValidationTextBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_shippingTo" role="presentation" widgetid="shippingTo"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SHIPPING_TO" type="text" aria-invalid="true" id="shippingTo" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>									
+								</div>								
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">Attn:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft textBox dijitTextBox dijitValidationTextBox" id="widget_shippingAttnName" role="presentation" widgetid="shippingAttnName"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SHIPPING_ATTN_NAME" type="text" aria-invalid="false" id="shippingAttnName" tabindex="0" value=""></div></div>
+									</div>
+								</div>
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">Address 1:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_shippingAddress1" role="presentation" widgetid="shippingAddress1"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SHIPPING_ADDRESS1" type="text" aria-invalid="true" id="shippingAddress1" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>
+									<div class="label_wrap">
+										<label for="sort_by_year">Address 2:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft textBox dijitTextBox dijitValidationTextBox" id="widget_shippingAddress2" role="presentation" widgetid="shippingAddress2"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SHIPPING_ADDRESS2" type="text" aria-invalid="false" id="shippingAddress2" tabindex="0" value=""></div></div>
+									</div>					   		
+								</div>
+								<div class="group_labels">
+									<div class="label_wrap" id="scountryDD" style="visibility: visible;">
+										<label for="sort_by_make">Country:</label>
+									
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitComboBox" id="widget_SHIPPING_COUNTRY" role="combobox" widgetid="SHIPPING_COUNTRY" style="width: 151px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" dojoattachpoint="_buttonNode, _popupStateNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" role="textbox" aria-haspopup="true" aria-invalid="false" id="SHIPPING_COUNTRY" tabindex="0" aria-required="true" value="United States"><input type="hidden" name="SHIPPING_COUNTRY" value="USA"></div></div>
+										<script type="text/javascript">
+											getStateListChr('USA', 'shippingStateContainer', '&#47;xap-mlxi' + '/control/states', '', 'SHIPPING_STATE', 'SHIPPING_STATE');
+										</script>
+										<span class="required_field">*</span>								
+									</div>
+								</div>								
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">City:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft textBox dijitTextBox dijitValidationTextBox dijitTextBoxError dijitValidationTextBoxError dijitError dijitTextBoxFocused dijitValidationTextBoxFocused dijitTextBoxErrorFocused dijitValidationTextBoxErrorFocused dijitErrorFocused dijitFocused" id="widget_shippingCity" role="presentation" widgetid="shippingCity"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SHIPPING_CITY" type="text" aria-invalid="true" id="shippingCity" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>
+									<div class="label_wrap" id="sstateDD" style="visibility: visible;">
+										<label for="sort_by_year">State or Province:</label>
+										<div id="shippingStateContainer" style="display:inline-block;"><div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitComboBox" id="widget_SHIPPING_STATE" role="combobox" widgetid="SHIPPING_STATE"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" dojoattachpoint="_buttonNode, _popupStateNode" role="presentation" style="outline: none;"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" role="textbox" aria-haspopup="true" aria-invalid="false" id="SHIPPING_STATE" tabindex="0" aria-required="true" value="Select State"><input type="hidden" name="SHIPPING_STATE" value="-1"></div></div></div>
+										<span class="required_field" style="margin-left:-2px; vertical-align:super">*</span>
+									</div>									
+								</div>
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_model">Zip/Postal Code:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft textBox dijitTextBox dijitValidationTextBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_shippingMailCode" role="presentation" widgetid="shippingMailCode"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SHIPPING_POSTAL_CODE" type="text" maxlength="12" aria-invalid="true" id="shippingMailCode" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>							   		
+								</div>
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">Phone:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft phone textBox dijitTextBox dijitValidationTextBox" id="widget_shippingPhone" role="presentation" widgetid="shippingPhone"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SHIPPING_PHONE_CONTACT" type="text" maxlength="17" aria-invalid="false" id="shippingPhone" tabindex="0" value=""></div></div>
+									</div>											
+								</div>																																
+							</div>
+						</fieldset>
+					</div>	
+				</div>
+				<div class="form_fields_container">
+				<div class="form_fields" style="width:45% !important">
+					<div class="form_fields_header">Login Information</div>
+					<fieldset>
+						<div class="padder">
+							<div class="group_labels">
+								<div class="label_wrap">
+								<input name="USER_TYPE" value="Bidder" type="hidden">
+								</div>	
+							</div>
+							<div class="group_labels">
+							<div class="label_wrap">
+							</div>
+						         	<input name="PREFERRED_TIME_ZONE" value="10081" type="hidden">
+							</div>
+							<div class="group_labels">
+							<div class="label_wrap">
+							<label for="sort_by_year">Password:</label>
+							<div oncontextmenu="showPopUpMessage('Validation Error', 'Right click disabled.');return false;"><div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox" id="widget_password1" role="presentation" widgetid="password1"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="PASSWORD" type="password" id="password1" tabindex="0" aria-required="true" aria-invalid="false" value=""></div></div><span class="required_field">*</span></div>
+							</div>
+							<div class="label_wrap">
+							<label for="sort_by_year">Re-enter Password:</label>
+							<div oncontextmenu="showPopUpMessage('Validation Error', 'Right click disabled.');return false;"><div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_password2" role="presentation" widgetid="password2"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CONFIRM_PASSWORD" type="password" id="password2" tabindex="0" aria-required="true" aria-invalid="true" value=""></div></div><span class="required_field">*</span></div>
+							</div>
+							<span class="small_text">6-20 alphanumeric or special characters only. Case sensitive.</span>
+							</div>
+							<div class="group_labels">
+							<div class="label_wrap">
+							<label for="sort_by_year">Email Address:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_email1" role="presentation" widgetid="email1"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CUSTOMER_EMAIL" type="text" maxlength="255" aria-invalid="true" id="email1" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+							</div>
+							<div class="label_wrap">
+							<label for="sort_by_year">Re-enter Email Address:</label>
+							<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_email2" role="presentation" widgetid="email2"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="CONFIRM_EMAIL" type="text" maxlength="255" aria-invalid="true" id="email2" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+							</div>
+							</div>
+							<label>Notification Preference:</label>
+							<div class="group_labels">
+								<div class="label_wrap">
+									<div class="checkboxes">
+									<input name="NOTIFICATION_DT_PREFERENCE" value="EMAIL" type="checkbox" checked=""> 
+									<label>Email</label>
+									</div>
+								</div>
+								<div class="label_wrap">
+									<div class="checkboxes">
+									<input name="NOTIFICATION_DT_PREFERENCE" value="SMS" onclick="javascript:showHideText('NOTIFICATION_DT_PREFERENCE','additional_info');" type="checkbox"> 
+									<label>SMS/Text</label>
+									</div>	
+								</div>
+							</div>
+							
+							<div class="group_labels" id="additional_info" style="display:none;">
+								<div class="label_wrap">
+								</div>
+								<div class="label_wrap">
+									<label for="sort_by_year">SMS Number:</label>
+									<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox" id="widget_SMS_NUMBER" role="presentation" widgetid="SMS_NUMBER"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="SMS_NUMBER" type="text" aria-invalid="false" id="SMS_NUMBER" tabindex="0" value=""></div></div>
+									<span class="small_text">US: 999-999-9999, International: please add your country code +99</span>
+								</div>
+							</div>
+							
+                    			<input name="EMAIL_CONTENT_TYPE" value="text/plain" type="hidden">
+						</div>
+					</fieldset>
+				</div>
+					<div class="form_fields" style="width:45% !important">
+						<div class="form_fields_header">Billing Information</div>
+						<fieldset>
+							<div class="padder">
+								<div class="group_labels">
+									<div class="label_wrap">
+										<div class="checkboxes">
+											<input id="billingAsShipping" name="BILLING_AS_SHIPPING" value="billingAsShipping" type="checkbox" onclick="javascript:billingSameAsShipping();"> 
+											<label>Same as Shipping Address</label>		
+										</div>					   		
+									</div>
+								</div>	
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">To:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_billingTo" role="presentation" widgetid="billingTo"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="BILLING_TO" type="text" aria-invalid="true" id="billingTo" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>									
+								</div>			
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">Attn:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox" id="widget_billingAttnName" role="presentation" widgetid="billingAttnName"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="BILLING_ATTN_NAME" type="text" aria-invalid="false" id="billingAttnName" tabindex="0" value=""></div></div>
+									</div>
+								</div>								
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">Address 1:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_billingAddress1" role="presentation" widgetid="billingAddress1"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="BILLING_ADDRESS1" type="text" aria-invalid="true" id="billingAddress1" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>
+									<div class="label_wrap">
+										<label for="sort_by_year">Address 2:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox" id="widget_billingAddress2" role="presentation" widgetid="billingAddress2"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="BILLING_ADDRESS2" type="text" aria-invalid="false" id="billingAddress2" tabindex="0" value=""></div></div>
+									</div>					   		
+								</div>
+								<div class="group_labels">
+									<div class="label_wrap" id="bcountryDD" style="visibility: visible;">
+										<label for="sort_by_make">Country:</label>
+									
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitComboBox" id="widget_BILLING_COUNTRY" role="combobox" widgetid="BILLING_COUNTRY" style="width: 151px;"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" dojoattachpoint="_buttonNode, _popupStateNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" role="textbox" aria-haspopup="true" aria-invalid="false" id="BILLING_COUNTRY" tabindex="0" aria-required="true" value="United States"><input type="hidden" name="BILLING_COUNTRY" value="USA"></div></div>
+										<script type="text/javascript">
+											getStateListChr('USA', 'billingStateContainer', '&#47;xap-mlxi' + '/control/states', '', 'BILLING_STATE', 'BILLING_STATE');
+										</script>
+										<span class="required_field">*</span>								
+									</div>
+								</div>
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">City:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_billingCity" role="presentation" widgetid="billingCity"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="BILLING_CITY" type="text" aria-invalid="true" id="billingCity" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>
+									<div class="label_wrap" id="bstateDD" style="visibility: visible;">
+										<label for="sort_by_year">State or Province:</label>
+										<div id="billingStateContainer" style="display:inline-block;"><div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitComboBox" id="widget_BILLING_STATE" role="combobox" widgetid="BILLING_STATE"><div class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton dijitArrowButtonContainer" dojoattachpoint="_buttonNode, _popupStateNode" role="presentation"><input class="dijitReset dijitInputField dijitArrowButtonInner" value="▼ " type="text" tabindex="-1" readonly="readonly" role="presentation"><span style="opacity: 1; left: 1003.83px; top: 1094.59px; width: 4px; min-width: 4px; height: 13px; position: absolute; border: none; display: inline; visibility: visible; z-index: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAANCAYAAABLjFUnAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZG9SsNQGIaf04qCQxAJbsLBQVzEn61j0pYiONQokmRrkkMVbXI4Of508ia8CAcXR0HvoOIgOHkJboI4ODgECU4i+EzP9w4vL3zQWPE6frcxB6PcmqDnyzCK5cwj0zQBYJCW2uv3twHyIlf8RMD7MwLgadXr+F3+xmyqjQU+gc1MlSmIdSA7s9qCuATc5EhbEFeAa/aCNog7wBlWPgGcpPIXwDFhFIN4BdxhGMXQAHCTyl3AtercArQLPTaHwwMrN1qtlvSyIlFyd1xaNSrlVp4WRhdmYFUGVPuq3Z7Wx0oGPZ//JYxiWdnbDgIQC5M6q0lPzOn3D8TD73fdMb4HL4Cp2zrb/4DrNVhs1tnyEsxfwI3+AvOlUD7FY+VVAAAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAECSURBVHjapNK9K8UBFIfxD12im8LEYLgZjcpgUFgUCUlZTJRkMpqUxR+hDFIGhWwGwy0MFiUxSCbZ5DXiYjnqdvvpvnim0+mcZ/ieU9U6tySBNEbQjBpMoANZnGIdl4VLKcm8YCPqbgzhAT1ox1mSrFpxjtCHLdygH5tJgymlMYhhtKH+r6FishYsYBpN0dvFHu5wi9okWToC/0AmcpqM+pd7PKMRDajDNb5xlS97Qyem0BsL8IT9uOAhXpGLvL/wGXO5fFkOO7FwHvJtLOOilGALM8vE1d6xiFVlkP8aXTjAI8bKFeXLBuJ3shjFiQpIYR6zWMFaXFOlsnHM4Ng/+RkAdVE2mEeC7WYAAAAASUVORK5CYII=&quot;); background-position: 0px 0px; background-repeat: no-repeat;"></span></div><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" role="textbox" aria-haspopup="true" aria-invalid="false" id="BILLING_STATE" tabindex="0" aria-required="true" value="Select State"><input type="hidden" name="BILLING_STATE" value="-1"><span style="opacity: 1; left: 139px; top: 5px; width: 19px; min-width: 19px; height: 13px; position: absolute; border: none; display: inline; visibility: visible; z-index: auto; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAANCAYAAABLjFUnAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZG9SsNQGIaf04qCQxAJbsLBQVzEn61j0pYiONQokmRrkkMVbXI4Of508ia8CAcXR0HvoOIgOHkJboI4ODgECU4i+EzP9w4vL3zQWPE6frcxB6PcmqDnyzCK5cwj0zQBYJCW2uv3twHyIlf8RMD7MwLgadXr+F3+xmyqjQU+gc1MlSmIdSA7s9qCuATc5EhbEFeAa/aCNog7wBlWPgGcpPIXwDFhFIN4BdxhGMXQAHCTyl3AtercArQLPTaHwwMrN1qtlvSyIlFyd1xaNSrlVp4WRhdmYFUGVPuq3Z7Wx0oGPZ//JYxiWdnbDgIQC5M6q0lPzOn3D8TD73fdMb4HL4Cp2zrb/4DrNVhs1tnyEsxfwI3+AvOlUD7FY+VVAAAAIGNIUk0AAHolAACAgwAA9CUAAITRAABtXwAA6GwAADyLAAAbWIPnB3gAAAECSURBVHjapNK9K8UBFIfxD12im8LEYLgZjcpgUFgUCUlZTJRkMpqUxR+hDFIGhWwGwy0MFiUxSCbZ5DXiYjnqdvvpvnim0+mcZ/ieU9U6tySBNEbQjBpMoANZnGIdl4VLKcm8YCPqbgzhAT1ox1mSrFpxjtCHLdygH5tJgymlMYhhtKH+r6FishYsYBpN0dvFHu5wi9okWToC/0AmcpqM+pd7PKMRDajDNb5xlS97Qyem0BsL8IT9uOAhXpGLvL/wGXO5fFkOO7FwHvJtLOOilGALM8vE1d6xiFVlkP8aXTjAI8bKFeXLBuJ3shjFiQpIYR6zWMFaXFOlsnHM4Ng/+RkAdVE2mEeC7WYAAAAASUVORK5CYII=&quot;); background-position: 0px 0px; background-repeat: no-repeat;"></span></div></div></div>
+										<span class="required_field" style="margin-left:-2px; vertical-align:super">*</span>
+									</div>									
+								</div>								
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_model">Zip/Postal Code:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox textBox dijitTextBoxIncomplete dijitValidationTextBoxIncomplete dijitIncomplete" id="widget_billingMailCode" role="presentation" widgetid="billingMailCode"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="BILLING_POSTAL_CODE" type="text" maxlength="12" aria-invalid="true" id="billingMailCode" tabindex="0" aria-required="true" value=""></div></div><span class="required_field">*</span>
+									</div>							   		
+								</div>
+								<div class="group_labels">
+									<div class="label_wrap">
+										<label for="sort_by_year">Phone:</label>
+										<div class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitValidationTextBox phone textBox" id="widget_billingPhone" role="presentation" widgetid="billingPhone"><div class="dijitReset dijitValidationContainer"><input class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" value="Χ " type="text" tabindex="-1" readonly="readonly" role="presentation"></div><div class="dijitReset dijitInputField dijitInputContainer"><input class="dijitReset dijitInputInner" dojoattachpoint="textbox,focusNode" autocomplete="off" name="BILLING_PHONE_CONTACT" type="text" maxlength="17" aria-invalid="false" id="billingPhone" tabindex="0" value=""></div></div>
+									</div>
+								</div>																																
+							</div>
+						</fieldset>
+					</div>					
+			</div>
+			<div class="reg_page_notes">
+			</div>
+			
+			<div class="agreement">
+				<div class="agreement_text">
+					<strong>You must agree to the  <a href="javascript:showTC();">Terms and Conditions </a> before you are allowed to bid on any auction items included on this web site.</strong>
+					<div class="label_wrap">
+						<div class="checkboxes">
+							<input id="tcInd" name="TC_IND" value="Y" type="checkbox"> <label><strong>I agree to the terms and conditions</strong></label><span class="required_field">*</span>
 						</div>
 					</div>
-					<div class="forgot_password"><a href="javascript:showForgotPassword();">Forgot Password</a></div>
-					<div class="forgot_password"><a href="javascript:showForgotUserid();">Forgot Username</a></div>
+				</div>
+				<div class="agreement_buttons">
 					<div class="button">
-						<button type="submit" id="btn_login" class="button_gradient">
-							Sign In
+						<button id="btn_submit" class="bid_button button_gradient" type="button" onclick="javascript:return validateRegistrationPage('Registration Error', 'Registration Warning', 'No spaces allowed in password fields.', 'Please select the Title.', 'Please enter valid first name.', 'Please enter valid last name.', 'Please enter valid requested username/bidder id.', 'Please enter company name.', 'Please enter user mobile.', 'Invalid address.', 'Passwords do not match.', 'Please select the state for United States.', 'Please select the country.', 'Please select the state.', 'Please select your Preferred Time Zone.', 'Please enter valid mail code.', 'Emails do not match.', 'Email is invalid.', 'Invalid email id entered under notification.', 'Your Notification Email address is same as the Email address entered.', 'Please confirm that you agree to the Terms and Conditions in order to register.', 'In order to receive SMS notifications, please provide a valid SMS number in the correct format.', 'Please select a mobile carrier.', 'In order to receive SMS notifications, please provide a valid mobile number in the correct format.', 'Please provide all mandatory information in the correct format in order to register.');">
+							Submit
 						</button>
 					</div>
-					</form>
+					<div class="button alt_button cancel_button">
+						<button id="btn_cancel" class="bid_button button_gradient" type="button" onclick="javascript:document.cancelform.submit();">
+							Cancel
+						</button>
+					</div>					
 				</div>
 			</div>
-			
-			<!-- End of Alert -->
-			<div class="regsitration_popup">
-						<div class="padder1" style="float:left;width:55%; margin:10px;color:#000000;">
-							<div>
-							
-			
-			<div id="login_points">
-				<p> &middot; View time-based bidding activity in real time</p>
-				<p> &middot; Place bids on items that interest you</p>
-				<p> &middot; Receive email or SMS notifications</p>
-				<p> &nbsp;</p>
-			</div>
-		
-							</div>
-							<div style="font-size:10px;margin-top:10px">
-									
-			<p> Japan Super Auction registration is hosted on a secure server. 
-				<br>
-				We will not share your personal information with third parties.
-				<br><br>
-			</p>
-		
-							</div>
-						</div>					
-				<div class="padder2">
-					<div style="width: 200px;">
-					</div>
-				</div>
-			</div>
-			</div>
+		</form>
 		</div>
-		<!-- End of Wrapper -->
-
+		<!-- End of Padding -->
+	</div>
+	<!-- Start of Sort Box -->
+</div>
+<!-- End of Content -->
+<form method="post" action="/xap-mlxi/control/list" id="cancelform" name="cancelform">
+</form>
 <script type="text/javascript">
-	//Timeout is given to make code compatible to IE
-	setTimeout(function(){document.getElementById('USERNAME').focus();},1000);
-</script><!-- End Template component://xap-storefront/webapp/xap-storefront/common/login.ftl -->
+	document.onkeydown = function getkeycode(ev){
+		if((currentElement=='password1')||(currentElement=='password2')){
+			var value = ((window.external)&&(window.navigator.appName == "Microsoft Internet Explorer")) ? event.keyCode : ev.keyCode;
+			if(value==17){
+				showPopUpMessage('Validation Error', 'This function is disabled.');
+			}
+		}
+	}
+</script>
+<!-- End Template component://xap-storefront/webapp/xap-storefront/common/customer.ftl -->
+<!-- End Section Widget  -->
+<!-- Begin Section Widget  -->
+<!-- End Section Widget  -->
+<!-- Begin Section Widget  -->
+<!-- End Section Widget  -->
+<!-- Begin Section Widget  -->
+<!-- End Section Widget  -->
+<!-- Begin Section Widget  -->
+<!-- End Section Widget  -->
+<!-- Begin Section Widget  -->
+<!-- End Section Widget  -->
+<!-- Begin Section Widget  -->
+<!-- End Section Widget  -->
+<!-- End Section Widget  -->
 <!-- Begin Screen component://xap-storefront/widget/CommonScreens.xml#footer -->
 <!-- Begin Template component://xap-storefront/webapp/xap-storefront/common/footer.ftl -->
 
@@ -239,6 +584,9 @@
 							</div>
 						 
 						
+						<div class="footer_links">
+							<span><a href="/xap-mlxi/control/contactUs?pageLocale=en">Contact Us</a></span>
+						</div>
 				</div>
 			</div>
 			<!-- End of Footer -->
@@ -249,9 +597,17 @@
 <!-- End Screen component://xap-storefront/widget/CommonScreens.xml#footer -->
 <!-- End Screen component://xap-storefront/widget/CommonScreens.xml#app-decorator-1-column -->
 <!-- End Section Widget  -->
-<!-- End Section Widget  -->
-<!-- End Section Widget  -->
-<!-- End Section Widget  -->
-<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#login -->
-</body>
+<!-- End Screen component://xap-storefront/widget/CommonScreens.xml#registration -->
+
+<div class="dijitDialogUnderlayWrapper" id="dijit_DialogUnderlay_0" widgetid="dijit_DialogUnderlay_0" style="display: block; top: 0px; left: 0px; z-index: 949;"><div class="dijitDialogUnderlay _underlay" dojoattachpoint="node" id="dlgPopUpMsg_underlay" style="width: 1425px; height: 439px;"></div></div>
+<div class="dijitDialog dijitDialogFocused dijitFocused" role="dialog" aria-labelledby="dlgPopUpMsg_title" title="" id="dlgPopUpMsg" widgetid="dlgPopUpMsg" style="width: 507px; position: absolute; left: 459px; top: 119px; opacity: 1; z-index: 950;">
+	<div dojoattachpoint="titleBar" class="dijitDialogTitleBar" style="display: none;">
+	<span dojoattachpoint="titleNode" class="dijitDialogTitle" id="dlgPopUpMsg_title"></span>
+	<span dojoattachpoint="closeButtonNode" class="dijitDialogCloseIcon" dojoattachevent="ondijitclick: onCancel" title="Cancel" role="button" tabindex="-1" style="display: none;">
+		<span dojoattachpoint="closeText" class="closeText" title="Cancel">x</span>
+	</span>
+	</div>
+		<div dojoattachpoint="containerNode" class="dijitDialogPaneContent" style="width: auto; height: auto;"><div id="dlgPopUpMsg"><div class="alert"><h2 class="background_color_pop_up">Registration Error</h2><div style="color:#000000"><form><p>Please provide all mandatory information in the correct format in order to register.</p><p>&nbsp;</p><input id="Ok" type="button" class="alert_button" name="button" value="  Ok  " tabindex="1"></form></div></div></div></div>
+</div>
+
 </html>
