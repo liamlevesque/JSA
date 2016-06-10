@@ -1,0 +1,248 @@
+table, tr, th, td, tbody{
+
+	display: block;
+	border: 0;
+	padding: 0;
+
+}
+
+html body * span.clear,html body * div.clear,html body * li.clear,html body * dd.clear {
+    background: none;
+    border: 0;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    font-family: Arial;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+
+html {
+    font-family: "Trebuchet MS";
+    font-size: 14px;
+    min-width: 768px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+	body{
+		margin: 0;
+	}
+
+.header {
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0px 0 7px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+
+    span:nth-child(1){
+        display: inline-block;
+    }
+
+    &>div{
+    	float: right;
+    	margin-right: 20px;
+    	font-size: 0;
+    	
+    	span{
+    		line-height: 60px;
+    		font-size: 1rem;
+    	}
+    }
+}
+
+    .logo {
+        height: $header-height;
+        width: 180px;
+    }
+
+.basePage{
+
+	&>div{
+		float: none !important;
+		margin: 0 !important;
+		width: auto !important;
+
+		&>table{
+			max-width: 800px;
+			margin: 0 auto;
+			
+			//FOR THE HEADER TABLE
+			&:first-of-type{
+				border: 0;
+				background-color: $c-brand;
+				color: white;
+				padding: 20px 20px;
+				font-size: 0;
+
+				span[dojoattachpoint="apLabel"]{
+					font-size: 0.8rem;
+					text-transform: uppercase;
+					display: inline-block;
+					width: 75px;
+					margin-bottom: 10px;
+					text-align: right;
+					padding-right: 10px;
+				}
+
+				span[data-dojo-attach-point="apMsg"]{
+					font-size: 1.2rem;
+				}
+
+
+			}
+			
+			//FOR THE TABLE WITH PURCHASE LIST
+			&:last-of-type{
+				border: 1px solid $c-grey-100;
+				
+				//HEADER TABLE WITHIN HERE
+				&>tbody>tr>td>table{
+					padding: 10px 20px 5px;
+					border-bottom: 1px solid $c-grey-100;
+
+					tr{
+						display: inline-block;
+						vertical-align: top;
+
+						&:nth-child(1){
+							width: 45%;
+
+							font{
+								line-height: 2rem;
+							}
+						}
+
+						&:nth-child(2){
+							width: 50%;
+
+							td{
+								display: inline-block;
+								width: 45%;
+								font-size: 0;
+
+								&:nth-child(1){
+									text-align: right;
+									padding-right: 10px;
+
+									span{
+										text-align: right;
+										line-height: 2rem;
+
+									}
+								}
+
+								&:nth-child(2) span{
+									font-size: 1.2rem;
+									line-height: 2rem;
+								}
+							}
+						}
+
+						&:nth-child(3){
+							display: none;
+						}
+
+					}
+				}
+
+			}
+
+			
+		}
+
+		&>b{
+			display: block;
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: $c-grey-100;
+			margin-bottom: 50px;
+
+			br{
+				display: none;
+			}
+
+			span{
+				text-transform: none;
+				font-size: 1rem;
+				font-weight: 400;
+				display: block;
+				max-width: 500px;
+				margin: 0 auto;
+				text-align: center;
+
+				&:last-of-type{
+					font-weight: 700;
+					color: $c-brand;
+
+					&:after{
+						content: "!";
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+	span[dojoattachpoint="apLabel"]{
+		font-size: 0.8rem;
+		text-transform: uppercase;
+	}
+
+
+	.purchase_table{
+		.row_tr{
+			background-color: $c-grey-100;
+			padding: 0 20px 3px;
+
+			div:nth-child(3){
+				text-align: right;
+			}
+
+			div:nth-child(4){
+				text-align: center;
+			}
+
+			u{
+				text-decoration: none;
+			}
+		}
+
+		&>div:not(.row_tr){
+			padding: 10px 20px;
+			border-bottom: 1px solid $c-grey-100;
+			&:last-child{
+				border-bottom: 0;
+			}
+
+			&>div{
+				vertical-align: middle;
+
+				&:nth-child(3){
+					text-align: right;
+				}
+
+				&:nth-child(4){
+					text-align: center;
+				}
+			}
+		}
+	}
+

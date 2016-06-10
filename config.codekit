@@ -65,6 +65,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/css\/vpp.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/vpp.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/images\/lotImage.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -281,6 +290,22 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/scss\/_vpp-styles.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/scss\/_vpp-styles.scss",
+		"outputAbbreviatedPath": "\/css\/_vpp-styles.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/scss\/static.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -312,6 +337,31 @@
 		"shouldRunAutoprefixer": 1,
 		"shouldRunBless": 0,
 		"useLibsass": 0
+		},
+	"\/scss\/vpp.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/scss\/vpp.scss",
+		"outputAbbreviatedPath": "\/css\/vpp.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/view-purchases.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/view-purchases.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
 		}
 	},
 "hooks": [

@@ -1,0 +1,156 @@
+@import "http://netdna.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.css";
+table, tr, th, td, tbody {
+  display: block;
+  border: 0;
+  padding: 0; }
+
+html body * span.clear, html body * div.clear, html body * li.clear, html body * dd.clear {
+  background: none;
+  border: 0;
+  clear: both;
+  display: block;
+  float: none;
+  font-size: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  font-family: Arial; }
+
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  min-width: 768px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; }
+
+body {
+  margin: 0; }
+
+.header {
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0px 0 7px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; }
+  .header span:nth-child(1) {
+    display: inline-block; }
+  .header > div {
+    float: right;
+    margin-right: 20px;
+    font-size: 0; }
+    .header > div span {
+      line-height: 60px;
+      font-size: 1rem; }
+
+.logo {
+  height: 60px;
+  width: 180px; }
+
+.basePage > div {
+  float: none !important;
+  margin: 0 !important;
+  width: auto !important; }
+  .basePage > div > table {
+    max-width: 800px;
+    margin: 0 auto; }
+    .basePage > div > table:first-of-type {
+      border: 0;
+      background-color: #1b75bc;
+      color: white;
+      padding: 20px 20px;
+      font-size: 0; }
+      .basePage > div > table:first-of-type span[dojoattachpoint="apLabel"] {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        display: inline-block;
+        width: 75px;
+        margin-bottom: 10px;
+        text-align: right;
+        padding-right: 10px; }
+      .basePage > div > table:first-of-type span[data-dojo-attach-point="apMsg"] {
+        font-size: 1.2rem; }
+    .basePage > div > table:last-of-type {
+      border: 1px solid #E1E1E1; }
+      .basePage > div > table:last-of-type > tbody > tr > td > table {
+        padding: 10px 20px 5px;
+        border-bottom: 1px solid #E1E1E1; }
+        .basePage > div > table:last-of-type > tbody > tr > td > table tr {
+          display: inline-block;
+          vertical-align: top; }
+          .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(1) {
+            width: 45%; }
+            .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(1) font {
+              line-height: 2rem; }
+          .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(2) {
+            width: 50%; }
+            .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(2) td {
+              display: inline-block;
+              width: 45%;
+              font-size: 0; }
+              .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(2) td:nth-child(1) {
+                text-align: right;
+                padding-right: 10px; }
+                .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(2) td:nth-child(1) span {
+                  text-align: right;
+                  line-height: 2rem; }
+              .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(2) td:nth-child(2) span {
+                font-size: 1.2rem;
+                line-height: 2rem; }
+          .basePage > div > table:last-of-type > tbody > tr > td > table tr:nth-child(3) {
+            display: none; }
+  .basePage > div > b {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #E1E1E1;
+    margin-bottom: 50px; }
+    .basePage > div > b br {
+      display: none; }
+    .basePage > div > b span {
+      text-transform: none;
+      font-size: 1rem;
+      font-weight: 400;
+      display: block;
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center; }
+      .basePage > div > b span:last-of-type {
+        font-weight: 700;
+        color: #1b75bc; }
+        .basePage > div > b span:last-of-type:after {
+          content: "!"; }
+
+span[dojoattachpoint="apLabel"] {
+  font-size: 0.8rem;
+  text-transform: uppercase; }
+
+.purchase_table .row_tr {
+  background-color: #E1E1E1;
+  padding: 0 20px 3px; }
+  .purchase_table .row_tr div:nth-child(3) {
+    text-align: right; }
+  .purchase_table .row_tr div:nth-child(4) {
+    text-align: center; }
+  .purchase_table .row_tr u {
+    text-decoration: none; }
+.purchase_table > div:not(.row_tr) {
+  padding: 10px 20px;
+  border-bottom: 1px solid #E1E1E1; }
+  .purchase_table > div:not(.row_tr):last-child {
+    border-bottom: 0; }
+  .purchase_table > div:not(.row_tr) > div {
+    vertical-align: middle; }
+    .purchase_table > div:not(.row_tr) > div:nth-child(3) {
+      text-align: right; }
+    .purchase_table > div:not(.row_tr) > div:nth-child(4) {
+      text-align: center; }
