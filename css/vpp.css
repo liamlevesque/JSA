@@ -80,7 +80,8 @@ body {
       .basePage > div > table:first-of-type span[data-dojo-attach-point="apMsg"] {
         font-size: 1.2rem; }
     .basePage > div > table:last-of-type {
-      border: 1px solid #E1E1E1; }
+      border: 1px solid #E1E1E1;
+      width: auto !important; }
       .basePage > div > table:last-of-type > tbody > tr > td > table {
         padding: 10px 20px 5px;
         border-bottom: 1px solid #E1E1E1; }

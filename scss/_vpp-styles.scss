@@ -110,6 +110,7 @@ html {
 			//FOR THE TABLE WITH PURCHASE LIST
 			&:last-of-type{
 				border: 1px solid $c-grey-100;
+				width: auto !important;
 				
 				//HEADER TABLE WITHIN HERE
 				&>tbody>tr>td>table{
