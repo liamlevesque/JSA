@@ -26,15 +26,16 @@ html {
 }
 
     body{
-        height: 675px;
-        overflow: hidden;
+        // height: 675px;
+        // overflow: hidden;
         border-bottom: $default-border;
         box-sizing: border-box;
     }
 
 .container {
     width: 100%;
-    height: 675px !important;
+    height: 100%;
+    //height: 675px !important;
 }
 
 /*************************
@@ -431,7 +432,7 @@ html {
             margin: 0 4px 10px 0;  
 
             @include breakpoint(med-large){
-                width: 45% !important;
+                //width: 45% !important;
             }
 
                 span{
@@ -557,15 +558,15 @@ html {
         width: 100%;
         height: $photo-height;
 
-        @include breakpoint(large){
-            height: 400px;
+        @include vbreakpoint(large){
+            height: 50%;
         }
 
         .image_slideshow{
             background-size: cover !important;
             
             @include breakpoint(large){
-                background-size: 533px !important;
+                //background-size: 533px !important;
             }
         }
     } 
@@ -577,8 +578,8 @@ html {
         bottom: $messages-height;
         width: 100%;
 
-        @include breakpoint(large){
-            top: 400px;
+        @include vbreakpoint(large){
+            top: 50%;
         }
         
 
@@ -590,9 +591,9 @@ html {
 
             // LOT NUMBER STYLE
             span{
-                float: none !important;
+                float: none !important; 
                 margin: 0 !important;
-                line-height: 35px !Important;
+                line-height: 35px !important;
             }
 
             //LOT SHORT DESCRIPTION STYLE
@@ -747,9 +748,9 @@ html {
 }
 
         .gridHeader {
-        	width:100% !Important;
-        	height:19px !Important;
-        	padding-top:1px !Important;
+        	width:100% !important;
+        	height:19px !important;
+        	padding-top:1px !important;
             letter-spacing: 1px;
             font-size: 11px;
             text-transform: uppercase;

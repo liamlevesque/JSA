@@ -28,6 +28,7 @@ body {
 
 #header #logo {
   background: url("../../images/mlxi_jsa.png") no-repeat center top; }
+
 #header .container .clear {
   display: none; }
 
@@ -107,6 +108,7 @@ body {
 
 form .float_left {
   float: none !important; }
+
 form .label_wrap label {
   font-size: 0.8rem;
   font-weight: 700;
@@ -115,10 +117,12 @@ form .label_wrap label {
   font-size: 0.75rem;
   margin-left: 10px;
   color: #515151; }
+
 form .label_wrap .dijitValidationTextBox {
   margin-top: 5px; }
   form .label_wrap .dijitValidationTextBox input {
     margin-top: 0; }
+
 form .label_wrap input:not([type='checkbox']):not(.dijitArrowButtonInner) {
   width: 100% !important;
   padding: 8px 15px !important;
@@ -263,17 +267,22 @@ button, .alert_button, .button_gradient {
   vertical-align: top; }
   #userform .form_fields:last-child {
     float: right; }
+
 #userform .form_fields_header {
   color: white;
   font-weight: 400;
   font-size: 16px; }
+
 #userform .dijitInputInner {
   border: 0;
   border-radius: 20px; }
+
 #userform .dijitComboBox {
   height: auto !important; }
+
 #userform #shippingStateContainer, #userform #billingStateContainer {
   display: block !important; }
+
 #userform fieldset {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;

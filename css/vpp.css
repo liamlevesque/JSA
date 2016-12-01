@@ -145,6 +145,7 @@ span[dojoattachpoint="apLabel"] {
     text-align: center; }
   .purchase_table .row_tr u {
     text-decoration: none; }
+
 .purchase_table > div:not(.row_tr) {
   padding: 10px 20px;
   border-bottom: 1px solid #E1E1E1; }
